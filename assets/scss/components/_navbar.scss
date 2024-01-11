@@ -1,0 +1,123 @@
+// Navbar
+.navbar{
+	background: var(--f7-theme-color-white);
+	
+	a.link {
+		padding: 0 10px!important;
+		justify-content: center;
+		color: $headings-color;
+		min-width: 46px;
+		
+		i{
+			font-size: 32px;
+			fill: #000000;
+		}
+		[fill],
+		path{
+			fill: #000000;
+		}
+	}
+	
+	.navbar-inner{
+		max-width: 1024px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0 20px;
+		
+		.title{
+			color: $headings-color;
+			font-weight: 600;
+			width: 100%;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
+	
+	&.navbar-style-1{
+		height: 70px;
+		.navbar-inner{
+			.link.back{
+				min-height: 46px;
+				min-width: 46px;
+				background-color: #F6F6F6;
+				border-radius: 50px;		
+				padding: 0;
+				text-align: center;
+				justify-content: center;
+	
+				[fill],
+				path{
+					fill: #373737;
+				}
+			}
+			.title{
+				text-align: center;
+			}
+			.link.panel-open {
+				padding: 0 0 0 10px!important;
+				min-width: 40px;
+			}
+		}
+		
+		// Navbar Transparent
+		&.navbar-transparent{
+			background-color: transparent;
+			border-color: transparent;
+			
+			a.link {
+				[fill],
+				path{
+					fill: #fff;
+				}
+				.title,
+				a,
+				i{
+					color: #fff;
+				}
+			}
+			.title{
+				opacity: 1!important;
+				color: #fff;
+			}
+			.link.back{
+				background-color: rgba(255, 255, 255, 0.2);
+	
+				[fill],
+				path{
+					fill: #fff;
+				}
+			}
+			&.navbar-transparent-visible{
+				background: var(--f7-theme-color-white);
+				border-color: 1px solid #F4F4F4;
+				
+				a.link {
+					.title,
+					a,
+					i{
+						color: var(--f7-theme-color);
+					}
+					[fill],
+					path{
+						fill: var(--f7-theme-color);
+					}
+				}
+				.add-wishlist-btn{
+					i{
+						color: var(--f7-theme-color);
+					}
+				}
+				.link.back{
+					background-color: #F6F6F6;
+					[fill],
+					path{
+						fill: #373737;
+					}
+				}
+				.title{
+					color: $headings-color;
+				}
+			}
+		}
+	}
+}

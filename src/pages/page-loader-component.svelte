@@ -1,0 +1,231 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <Link back>
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </Link>
+        </div>
+        <div class="title">Component Page</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block block-strong">
+        <p>Component page template is compiled as ES Template. In addition it has lifecycle hooks, events handling, data
+          managment and Virtual DOM data bindings.</p>
+        <p>It is useful to use Component page when you need page-specific logic.</p>
+      </div>
+      <div class="block-title">Events Handling</div>
+      <div class="block block-strong">
+        <a href="#" class="button button-raised" on:click={openAlert}>Open Alert</a>
+      </div>
+      <div class="block-title">Page Component Data</div>
+      <div class="block block-strong">
+        <p>Hello! My name is ${name}. I am ${age} years old.</p>
+        <p>I like to play:</p>
+        <ul>
+          ${like.map((item) => $h`
+          <li>${item}</li>
+          `)}
+        </ul>
+      </div>
+      <div class="block-title">Extended Context</div>
+      <div class="block block-strong">
+        <p>Component page context is also extended with some additional variables.</p>
+        <h4>$f7route</h4>
+        <p>Contains properties of the current route:</p>
+        <ul style="padding-left:25px;word-wrap:break-word;">
+          <li><b>$f7route.url</b>: ${$f7route.url}</li>
+          <li><b>$f7route.path</b>: ${$f7route.path}</li>
+          <li><b>$f7route.params</b>: ${JSON.stringify($f7route.params)}</li>
+          <li><b>$f7route.hash</b>: ${$f7route.hash}</li>
+          <li><b>$f7route.query</b>: ${JSON.stringify($f7route.query)}</li>
+        </ul>
+
+        <h4>$theme</h4>
+        <p>Currently active theme:</p>
+        <ul style="padding-left:25px">
+          <li><b>$theme.ios</b>: ${String($theme.ios)}</li>
+          <li><b>$theme.md</b>: ${String($theme.md)}</li>
+          <li><b>$theme.aurora</b>: ${String($theme.aurora)}</li>
+        </ul>
+      </div>
+      <div class="block-title">Virtual DOM</div>
+      <div class="block block-strong">
+        <p>Component page is rendered using Virtual DOM. It means it can automatically update page layout depending on
+          changed state with minimal efforts and with maximum performance.</p>
+      </div>
+      <div class="block block-strong">
+        <p>Ok, so your name is <b>${name}</b>?</p>
+        <div class="input ${$theme.md ? 'margin-bottom' : '' }">
+          <input class="padding-bottom" type="text" on:input={onInput} value=${name} placeholder="Type your name" />
+          <div class="input-info">Type new name and it be dynamically changed</div>
+        </div>
+      </div>
+      <div class="block block-strong">
+        <p>Button clicked <b>${clickCounter}</b> times (double is ${clickCounter * 2})</p>
+        <p><a class="button button-round button-fill" on:click={onButtonClick}>Increase Counter</a></p>
+      </div>
+      ${listItems && $h`
+      <div class="list simple-list">
+        <ul>
+          ${listItems.map((item) => $h`
+          <li>Item ${item}</li>
+          `)}
+        </ul>
+      </div>
+      `}
+      ${!listItems && $h`
+      <div class="block block-strong text-align-center">
+        ${listLoading ? $h`
+        <div class="preloader"></div>
+        ` : $h`
+        <p><a class="button button-round button-fill" @click=${loadList}>Load List</a></p>
+        `}
+      </div>
+      `}
+
+      <div class="block-title">Store ($store)</div>
+      <div class="block block-strong">
+        <p>Store state & methods (actions):</p>
+        <ul style="padding-left:25px">
+          <li><b>$store.state.firstName</b>: ${$store.state.firstName}</li>
+          <li><b>$store.state.lastName</b>: ${$store.state.lastName}</li>
+          <li><a on:click={()=> $store.dispatch('helloWorld')}>$store.dispatch('helloWorld')</a></li>
+        </ul>
+      </div>
+      <div class="block-title">Store reactivity</div>
+      ${!users.value && $h`
+      <div class="block block-strong text-align-center">
+        ${usersLoading.value && $h`
+        <div class="preloader"></div>
+        `}
+        ${!usersLoading.value && $h`
+        <a class="button button-round button-fill" @click=${loadUsers}>Load Users</a>
+        `}
+      </div>
+      `}
+      ${users.value && $h`
+      <div class="list simple-list">
+        <ul>
+          ${users.value.map((user) => $h`
+          <li>${user}</li>
+          `)}
+        </ul>
+      </div>
+      `}
+    </div>
+  </div>
+</template>
+<style>
+  p {
+    margin: 10px 0;
+  }
+</style>
+<!-- <script>
+  export default (props, {
+    $f7,
+    $update,
+    $on,
+    $onBeforeMount,
+    $onMounted,
+    $onBeforeUpdate,
+    $onUpdated,
+    $onBeforeUnmount,
+    $onUnmounted,
+    $store,
+  }) => {
+    // Component Data
+    const age = 25;
+    const like = ['Tennis', 'Chess', 'Football'];
+
+    let name = 'Jimmy';
+    let clickCounter = 0;
+    let listItems = null;
+    let listLoading = null;
+
+    // Component Methods
+    function openAlert() {
+      $f7.dialog.alert('Hello World');
+    }
+    function onInput(e) {
+      name = e.target.value;
+      $update();
+    }
+    function onButtonClick() {
+      clickCounter += 1;
+      $update();
+    }
+    function loadList() {
+      listLoading = true;
+      $update();
+      // Emulate Ajax request
+      setTimeout(() => {
+        listLoading = false;
+        listItems = [1, 2, 3, 4, 5];
+        $update();
+      }, 2000);
+    }
+
+    // Store
+    let users = $store.getters.users;
+    let usersLoading = $store.getters.usersLoading;
+    window.users = users;
+    function loadUsers() {
+      $store.dispatch('loadUsers');
+    }
+
+    // Lifecycle Hooks
+    $onBeforeMount(() => {
+      console.log('Component BeforeMount')
+    })
+    $onMounted(() => {
+      console.log('Component Mounted')
+    })
+    $onBeforeUpdate(() => {
+      console.log('Component BeforeUpdate')
+    })
+    $onUpdated(() => {
+      console.log('Component Updated')
+    })
+    $onBeforeUnmount(() => {
+      console.log('Component BeforeUnmount')
+    })
+    $onUnmounted(() => {
+      console.log('Component Unmounted')
+    })
+
+    // Page Events
+    $on('pageMounted', function (e, page) {
+      console.log('pageMounted', page);
+    })
+    $on('pageInit', function (e, page) {
+      console.log('pageInit', page);
+    })
+    $on('pageBeforeIn', function (e, page) {
+      console.log('pageBeforeIn', page);
+    })
+    $on('pageAfterIn', function (e, page) {
+      console.log('pageAfterIn', page);
+    })
+    $on('pageBeforeOut', function (e, page) {
+      console.log('pageBeforeOut', page);
+    })
+    $on('pageAfterOut', function (e, page) {
+      console.log('pageAfterOut', page);
+    })
+    $on('pageBeforeRemove', function (e, page) {
+      console.log('pageBeforeRemove', page);
+    })
+
+
+    return $render;
+  }
+</script> -->
+
+<script>
+  import { Link } from 'framework7-svelte';
+</script>

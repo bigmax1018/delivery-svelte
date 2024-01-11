@@ -1,0 +1,132 @@
+.wishlist-bx{
+	position: relative;
+	background-color: var(--f7-theme-color-white);
+	overflow: hidden;
+    border-radius: $border-radius-lg;
+    display: flex;
+	padding: 12px 25px 12px 12px;
+	align-items: center;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	
+	p{
+		font-size: 12px;
+		margin: 0;
+		font-weight: 500;
+		line-height: 12px;
+	}
+	.dz-info{
+		padding: 0 0 0 15px;
+		width: 100%;
+	}
+	.item-title {
+		font-weight: 600;
+		margin: 0 0 15px;
+		white-space: normal;
+	}
+	.dz-head{
+		margin-bottom: 15px;
+	}
+	.dz-media{
+		width: 93px;
+		min-width: 93px;
+		border-radius: $border-radius-lg;
+		overflow: hidden;
+		position: relative;
+		img{
+			width: 100%;
+			height: 100%;
+			display: flex;
+		}
+	}
+	.dz-meta{
+		ul{
+			justify-content: space-between;
+			background-color: transparent;
+		}
+	}
+	.price{
+		font-weight: 600;
+		font-size: 18px;
+		color: #000;
+		del{
+			font-size: 12px;
+			font-weight: 500;
+			color: #929292;
+			margin-left: 8px;
+		}
+	}
+	.qty{
+		font-size: 16px;
+		line-height: 16px;
+		margin-left: auto;
+		
+		strong{
+			font-weight: 600;
+			margin-right: 5px;
+		}
+	}
+	.rating{
+		display: flex;
+		font-size: 12px;
+		align-items: center;
+		
+		i{
+			color: #FFA800;
+			margin-right: 5px;
+		}
+	}
+	.dz-footer{
+		margin-top: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&.item-list{
+		display: flex;
+		.dz-media{
+			width: 120px;
+			min-width: 120px;
+			img{
+				object-fit: cover;
+			}
+		}
+	}
+	
+	/* Bookmark */
+	.bookmark-btn{
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-family: "Font Awesome 5 Free";
+		
+		input{
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+			display: none;
+			
+			&:checked ~ .checkmark:before {
+				color: var(--f7-theme-color);
+			}
+		}
+		.checkmark{
+			font-weight: 900;
+			line-height: 1;
+		
+			&:after {
+				content: "\f004";
+				position: absolute;
+				display: none;
+			}
+			&:before {
+				content: "\f004";
+				font-size: 20px;
+				color: #B9BCD3;
+			}
+		}
+	}
+}

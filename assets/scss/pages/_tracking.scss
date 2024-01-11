@@ -1,0 +1,159 @@
+// Location Tracking
+.map-dir{
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	padding: 15px 25px;
+    background-color: var(--f7-theme-color-white);
+    display: inline-block;
+    border-radius: 22px;
+	position: relative;
+	&:after{
+		content: "";
+		background-color: inherit;
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		left: 18px;
+		top: -6px;
+		transform: rotate(45deg);
+		box-shadow: -5px -3px 10px rgba(0,0,0,0.1);
+	}
+}
+.track-content{
+	position: relative;
+}
+.location-tracking{
+	iframe{
+	    height: 100%;
+		width: 100%;
+		border: 0;
+		margin-bottom: -60px;
+	}
+	.fixed-content{
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	.map-dir{
+		position: absolute;
+		left: 115px;
+		top: -185px;
+	}
+	.bottom-wraper{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+}
+
+.delivery-man{
+	padding: 20px 28px 50px;
+    background-color: var(--f7-theme-color-white);
+    border-radius: 22px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	z-index: 1;
+    position: relative;
+    margin: 0 auto -30px;
+	
+	.inner-content{
+		display: flex;
+		align-items: center;
+	}
+	.icon-area{
+		display: flex;
+		margin-left: auto;
+	}
+	.dz-media{
+		height: 50px;
+		max-width: 50px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-right: 20px;
+		
+		img{
+			width: 100%;
+		}
+	}
+	.title{
+		margin: 0;
+		font-weight: 500;
+	}
+	p{
+		margin: 0;
+	}
+	.icon-cell{
+		margin-left: 10px;
+		height: 50px;
+		width: 50px;
+		background-color: rgba(255, 255, 255, 0.2);
+		text-align: center;
+		line-height: 50px;
+		border-radius: 50%;
+		svg{
+			height: 50px;
+		}
+	}
+}
+.track-list{
+	padding: 0;
+    margin: 0;
+	position: relative;
+	
+	li{
+		display: flex;
+		align-items: center;
+		margin-bottom: 30px;
+		.icon-bx{
+			height: 58px;
+			width: 58px;
+			text-align: center;
+			line-height: 58px;
+			border-radius: 50px;
+			border: 1px solid;
+			border-color: var(--f7-theme-color);
+			margin-right: 20px;
+			background-color: var(--f7-theme-color-white);
+			
+			svg{
+				height: 58px;
+			}
+			&.location{
+				background-color: var(--f7-theme-color-light);
+				border-color: var(--f7-theme-color-light);
+			}
+			path[fill],
+			path{
+				fill: var(--f7-theme-color);
+			}
+			i{
+				color: var(--f7-theme-color);
+			}
+		}
+		.title{
+			margin: 0;
+		}
+		p{
+			margin: 0;
+			font-size: 12px;
+		}
+		
+		&:last-child{
+			margin-bottom: 0;
+		}
+		.button{
+			text-transform: capitalize;
+			font-weight: 700;
+			margin-left: auto;
+		}
+	}
+	&:after{
+		content: "";
+		height: calc(100% - 10px);
+		left: 30px;
+		top: 5px;
+		width: 1px;
+		border-left: 2px dashed rgba(0,0,0,0.3);
+		position: absolute;
+		z-index: -1;
+	}
+}

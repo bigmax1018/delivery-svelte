@@ -1,0 +1,157 @@
+// Messages Navbar
+.messages-navbar{
+	&.navbar{
+		.title{
+			.name{
+				margin: 0;
+			}
+			p{
+				font-size: 14px;
+				margin: 0;
+				opacity: 0.5;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+// Messagebar
+.messagebar{
+	left: 50%;
+    transform: translateX(-50%);
+	
+	&:before,
+	&:after{
+		content: none;
+	}
+	
+	// Toolbar Inner
+	.toolbar-inner{
+		border: 1px solid #dadada;
+		border-radius: $border-radius-lg;
+		padding: 6px;
+		background-color: var(--f7-theme-color-white);
+			
+		.emoji-icon{
+			left: 10px;
+			margin: 0;
+			padding: 0;
+		}
+		.demo-send-message-link{
+			height: 52px;
+			width: 52px;
+			line-height: 52px;
+			border-radius: $border-radius-lg;
+			font-size: 18px;
+			color: #fff;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.2);
+			text-align: center;
+			opacity: 1!important;	
+		}
+		textarea{
+			height: 45px;
+			padding: 10px 15px;
+		}
+		.messagebar-attachments{
+			border-bottom: 0;
+		}
+	}
+	
+	// Messagebar Area
+	.messagebar-area{
+		margin: 0;
+	}
+	
+	// Messagebar Sheet
+	.messagebar-sheet{
+		background-color: var(--f7-theme-color-white);
+	}
+}
+
+// Messages
+.messages{
+	margin: 0 0 20px!important;
+	background: transparent;
+		
+	// Messages Title
+	.messages-title{
+		font-weight: 600;
+		position: relative;
+		margin: 20px 0;
+		
+		&:before{
+			content: "";
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			top: 6px;
+			background-color: #ebebeb;
+			left: 0;
+			z-index: -1;
+		}
+		span{
+			background-color: var(--f7-theme-color-white);
+			padding: 2px 8px;
+		}
+	}
+	
+	// Message
+	.message{
+		margin: 20px 0 0!important;
+		max-width: 80%;
+		
+		// Message Avatar
+		.message-avatar{
+			height: 42px;
+			width: 42px;
+			border-radius: $border-radius;
+			overflow: hidden;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		
+		// Message Content
+		.message-content{
+			.message-bubble{
+				font-size: 16px;
+				padding: 18px;
+				line-height: 22px;
+				&:before{
+					content: none;
+				}
+			}
+			.message-name{
+				display: none;
+			}
+		}
+		
+		// Message Received
+		&.message-received{
+			.message-content{
+				.message-bubble{
+					background: #F6DBB3;
+					color: #262626;
+					border-radius: $border-radius-lg $border-radius-lg $border-radius-lg 0;
+				}
+			}
+			.message-avatar + .message-content{
+				margin-left: 15px;
+			}
+		}
+		
+		// Message Received
+		&.message-sent{
+			.message-content{
+				.message-bubble{
+					color: #fff;
+					border-radius: $border-radius-lg 0 $border-radius-lg $border-radius-lg;
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,53 @@
+/*
+Table of Contents
+
+Name                 : Ombe - Coffee Shop
+Author               : DexignZone
+Author Portfolio     : https://themeforest.net/user/dexignzone/portfolio
+
+Table of Sass Contents
+
+1. Abstracts
+
+2. Global/Base	
+
+3. Components
+
+4. Layout
+
+5. Pages
+
+6. Preloader
+
+*/
+
+
+////////////////////
+// Abstracts
+////////////////////
+@import "./abstracts/abstracts";
+
+////////////////////
+// Global
+////////////////////
+@import "./base/base";
+
+////////////////////
+// Global
+////////////////////
+@import "./preloader";
+
+////////////////////
+// All pages
+////////////////////
+@import "./pages/pages";
+
+////////////////////
+// All pages
+////////////////////
+@import "./layout/layout";
+
+////////////////////
+// Components
+////////////////////
+@import "./components/components";

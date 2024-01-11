@@ -1,0 +1,83 @@
+.overlay-black-light,
+.overlay-black-middle,
+.overlay-black-dark,
+.overlay-gradient-light,
+.overlay-gradient-middle,
+.overlay-gradient-dark,
+.overlay-white-light,
+.overlay-white-middle,
+.overlay-white-dark,
+.overlay-primary-light,
+.overlay-primary-middle,
+.overlay-primary-dark,
+.overlay-primary{
+    position: relative;
+	
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.container,
+	.container-fluid{
+		position: relative;
+		z-index: 1;
+	}
+}
+.overlay-black-light,
+.overlay-black-middle,
+.overlay-black-dark{
+	&:before{		
+		background: #000;
+	}
+}
+.overlay-gradient-light,
+.overlay-gradient-middle,
+.overlay-gradient-dark{
+	&:before{
+		background: var(--gradient);
+		background-size: 200%;
+	}
+}
+.overlay-white-light,
+.overlay-white-middle,
+.overlay-white-dark{
+	&:before{
+		background: #FFF;
+	}
+}
+.overlay-primary-light,
+.overlay-primary-middle,
+.overlay-primary-dark,
+.overlay-primary{
+	&:before{
+		background:var(--f7-theme-color);
+	}
+}
+.overlay-primary-light,
+.overlay-white-light,
+.overlay-gradient-light,
+.overlay-black-light{
+	&:before{
+		opacity: 0.3;
+	}
+}
+.overlay-primary-middle,
+.overlay-white-middle,
+.overlay-gradient-middl,
+.overlay-black-middle{
+	&:before{
+		opacity: 0.5;
+	}
+}
+.overlay-primary-dark,
+.overlay-white-dark,
+.overlay-gradient-dark,
+.overlay-black-dark{
+	&:before{
+		opacity: 0.8;
+	}
+}

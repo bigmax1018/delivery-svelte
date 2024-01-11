@@ -1,0 +1,61 @@
+// Location Wraper
+.location-wraper{
+	.fixed-toolbar{
+		background-color: var(--f7-theme-color-white);
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.filter-text{
+		color: #4e4e4e;
+		font-weight: 500;
+	}
+}
+.store-card{
+	border-radius: $border-radius-lg;
+	overflow: hidden;
+	background-color: var(--f7-theme-color-white);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.10%);
+	
+	.card-media{
+		img{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			object-fit: cover;
+		}
+	}
+	.title{
+		margin: 0 0 10px;
+	}
+	.time{
+		margin: 0;
+	}
+	.info-bottom{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.card-info{
+		padding: 30px 20px 20px;
+		position: relative;
+	}
+	.btn-dir{
+		background-color: #1d3eb1;
+		color: #fff;
+		text-transform: capitalize;
+		border-radius: 30px;
+		position: absolute;
+		top: -18px;
+		right: 20px;
+		padding: 0 16px;
+	}
+	.location{
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		svg,
+		i{
+			margin-right: 5px;
+		}
+	}
+}

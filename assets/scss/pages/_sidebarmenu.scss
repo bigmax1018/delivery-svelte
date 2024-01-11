@@ -1,0 +1,136 @@
+/* Sidebar Menu */
+.sidebar-menu{
+	.main-logo{
+		padding: 40px 30px 30px;
+		align-items: center;
+	}
+}
+.sidebar-left{
+	&:after{
+		content:none;
+	}
+	.title{
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 30px;
+	}
+	.panel-close{
+		display: block;
+		color: #000;
+		font-size: 30px;
+		position: absolute;
+		right: 0;
+		top: 50px;
+		height: 30px;
+		line-height: 1;
+		width: 30px;
+	}
+	.nav-bar{
+		padding:20px 20px 20px 0;
+		margin: 0;
+		
+		ul{
+			margin:0;
+			padding:0;
+			
+			&:before,
+			&:after{
+				content: none;
+			}
+			
+			li{
+				list-style:none;
+				display:block;
+				padding: 0!important;
+					
+				.item-link{
+					display: flex;
+					align-items: center;
+					color:#b0acb3;
+					font-size:16px;
+					padding: 15px 25px;
+					position:relative;
+					border-radius: 0 $border-radius $border-radius 0!important;
+					margin: 0;
+					background-color: transparent;
+
+					svg,
+					img{
+						margin-right: 15px;
+					}
+					i{
+						transform: scale(1.4);
+						-moz-transform: scale(1.4);
+						-webkit-transform: scale(1.4);
+						-ms-transform: scale(1.4);
+						-o-transform: scale(1.4);
+						margin-right: 20px;	
+					}
+					path[fill],
+					path{
+						fill: #adadad;
+					}
+					i{
+						color: #adadad;	
+					}
+					&.item-selected{
+						path[fill],
+						path{
+							fill: var(--f7-theme-color);
+						}
+						i,
+						span{
+							color: var(--f7-theme-color);	
+						}
+					}
+					&.logout-link{
+						margin-top: 30px;
+						path[fill],
+						path{
+							fill: #FF8484;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.sidebar-footer{
+	padding: 20px 30px;
+	.name{
+		color: #b1b1c3;
+		font-weight: 500;
+		font-size: 15px;
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+	p{
+		color: #b1b1c3;
+		font-weight: 400;
+		font-size: 12px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+.sidebar-left + .view-main{
+	@include transitionFast;
+	height: 100%;
+    top: 0;
+    border-radius: 0;
+    box-shadow: none;
+	transition-property: inherit !important;
+	-moz-transition-property: inherit !important;
+	-webkit-transition-property: inherit !important;
+	-o-transition-property: inherit !important;
+    transition-duration: 0.5s !important;
+    -moz-transition-duration: 0.5s !important;
+    -webkit-transition-duration: 0.5s !important;
+    -o-transition-duration: 0.5s !important;
+}
+.sidebar-left.panel-in + .view-main{
+    height: calc(100% - 130px);
+    top: 90px;
+    border-radius: 24px;
+    box-shadow: -5px 5px 30px 0 var(--f7-theme-color-light);
+	
+}

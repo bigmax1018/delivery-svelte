@@ -1,0 +1,61 @@
+// Button
+.button{
+	letter-spacing: unset;
+	
+	&.button-large{
+		font-size: 16px;
+		padding: 18px 25px;
+		height: auto;
+		line-height: 1.3;
+		font-weight: 600;
+	}
+	&.color-light{
+		background-color: var(--f7-theme-color-light);
+		color: var(--f7-theme-color);
+	}
+	&.button-secondary{
+		background-color: $secondary;
+		color: #313131;
+	}
+	&.button-gray{
+		background-color: #E5E5E5;
+		color: #646464;
+	}
+}
+.rounded{
+	&-sm{
+		border-radius: 8px;
+	}
+	&-md{
+		border-radius: 12px;
+	}
+	&-lg{
+		border-radius: 20px;
+	}
+	&-xl{
+		border-radius: 50px;
+	}
+}
+.button-outline{
+	border-width: 1px;
+}
+.button-social{
+	text-transform: capitalize;
+	img{
+		width: 24px;
+		margin-right: auto;
+	}
+	span{
+		width: 100%;
+	}
+	&.facebook{
+		background-color: #376aed;
+	}
+	&.google{
+		border: 1px solid #d1d1d1;
+	}
+}
+.button-light{
+    background-color: #E8FFE0;
+    color: var(--f7-theme-color);
+}

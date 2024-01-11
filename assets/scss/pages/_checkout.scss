@@ -1,0 +1,177 @@
+// Nav Wizard
+.nav-wizard{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    text-align: center;
+    background-color: #fff;
+    padding: 25px 0 15px;
+	position: relative;
+    margin: 0 auto;
+	overflow: hidden;
+	
+	&:before,
+	&:after{
+		content: "";
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 24px;
+	}
+	&:before{
+		background-color: var(--f7-theme-color);
+	}
+	&:after{
+		background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 54%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 54%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 54%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		z-index: 1;
+	}
+	li{
+		display: inline-block;
+		
+		.nav-link{
+			position: relative;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			
+			span{
+				margin-bottom: 40px;
+				display: block;
+				font-weight: 500;
+				font-size: 16px;
+				opacity: 0.4;
+				color: $headings-color;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 100px;
+				overflow: hidden;
+				justify-content: center;
+				text-align: center;
+			}
+			&.active{
+				&:before,
+				&:after{
+					content: "";
+					position: absolute;
+					transform: translateX(-50%);
+					border-radius: 50%;
+					left: 50%;
+				}
+				&:before{
+					bottom: 0;
+					height: 20px;
+					width: 20px;
+					border: 6px solid var(--f7-theme-color);
+					background-color: #fff;
+					box-sizing: border-box;
+					z-index: 1;
+				}
+				&:after{
+					bottom: -6px;
+					height: 30px;
+					border: 1px solid var(--f7-theme-color);
+					width: 30px;
+					opacity: 0.2;
+				}
+				span{
+					opacity: 1;
+					font-weight: 600;
+					font-size: 18px;
+					max-width: 180px;
+					width: 180px;
+				}
+			}
+		}
+		
+		&:first-child{
+			.nav-link{
+				&:after{
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+	}
+}
+.btn-icon{
+	justify-content: space-between;
+	i{
+		font-size: 22px;
+	}
+}
+// Payment Card
+.payment-swiper{
+	.swiper-slide{
+		width: auto;
+	}
+}
+.payment-card{
+    width: 285px;
+    height: 170px;
+    position: relative;
+	border-radius: $border-radius-lg;
+	overflow: hidden;
+	.card-media{
+		display: flex;
+		width: 100%;
+		height: 100%;
+	}
+	.card-info{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 25px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		height: 100%;
+	}
+	.card-name{
+		font-size: 16px;
+		color: #fff;
+		font-weight: 500;
+		margin: 0 0 15px;
+	}
+	.card-number{
+		color: #fff;
+		font-size: 16px;
+		margin: 0;
+		font-weight: 300;
+		letter-spacing: 2px;
+	}
+	.bottom-info{
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		
+		p{
+			font-weight: 300;
+			margin: 0;
+			font-size: 16px;
+			letter-spacing: 2px;
+			color: rgba(255,255,255,0.4);
+		}
+	}
+}
+.checkout-details{
+	.checkout-total{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px 0;
+		
+		.title{
+			margin: 0;
+			font-size: 16px;
+		}
+		.checkout-total{
+			margin: 0;
+		}
+	}
+}
