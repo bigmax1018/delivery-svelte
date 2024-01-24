@@ -8,34 +8,40 @@ import AboutPage from '../pages/about.svelte';
 import BlogPage from '../pages/blog.svelte';
 import BlogDetailPage from '../pages/blog-detail.svelte';
 import BreadCrumbPage from '../pages/breadcrumbs.svelte';
-import CheckOutCouponApplyPage from '../pages/checkout-coupon-apply.svelte';
+import FakeOrderPage from '../pages/fakeorder.svelte';
 import CheckOutPaymentMethodPage from '../pages/checkout-payment-method.svelte';
 import CheckOutShippingAddressPage from '../pages/checkout-shipping-address.svelte';
 import ColorThemesPage from '../pages/color-themes.svelte';
 import ElementsPage from '../pages/elements.svelte';
-import ItemDetailsPage from '../pages/item-details.svelte';
+import ItemDetailsPizzaPage from '../pages/item-details-pizza.svelte';
+import ItemDetailsBonPage from '../pages/item-details-bon.svelte';
+import ItemDetailsKFCPage from '../pages/item-details-kfc.svelte';
+import ItemDetailsPillsPage from '../pages/item-details-pills.svelte';
+import ItemDetailsTeaPage from '../pages/item-details-tea.svelte';
 import LoginScreenPage from '../pages/login-screen.svelte';
 import MasterDetailPage from '../pages/master-detail-detail.svelte';
 import MasterDetailMasterPage from '../pages/master-detail-master.svelte';
 import MessagesPage from '../pages/messages.svelte';
 import MessagesListPage from '../pages/messages-list.svelte';
 import NotificationsPage from '../pages/notifications.svelte';
-import OrderDetailsPage from '../pages/order-details.svelte';
+import OrderDetailsPage from '../pages/active-orders.svelte';
 import PageLoaderComponentPage from '../pages/page-loader-component.svelte';
 import PageTransitionsEffectPage from '../pages/page-transitions-effect.svelte';
 import PageTransitionsPage from '../pages/page-transitions.svelte';
 import ProductsPage from '../pages/products.svelte';
 import ProfilePage from '../pages/profile.svelte';
+import RestaurantPage from '../pages/restaurant.svelte';
 import RewardsPage from '../pages/rewards.svelte';
 import ShoppingCartPage from '../pages/shopping-cart.svelte';
-import SignUpPage from '../pages/signup.svelte';
 import StoreLocationsPage from '../pages/store-locations.svelte';
 import SubNavbarPage from '../pages/subnavbar.svelte';
 import TrackingPage from '../pages/tracking.svelte';
+import TrackingDonePage from '../pages/tracking-done.svelte';
 import WishlistPage from '../pages/wishlist.svelte';
 import WriteReviewsPage from '../pages/write-reviews.svelte';
 
 import SigninPage from '../pages/signin.svelte';
+import SignUpPage from '../pages/signup.svelte';
 
 var routes = [
   {
@@ -55,12 +61,16 @@ var routes = [
     component: BlogDetailPage,
   },
   {
-    path: '/breadcrumbs/',
-    component: BreadCrumbPage,
+    path: '/fakeorder/',
+    component: FakeOrderPage,
   },
   {
-    path: '/checkout-coupon-apply/',
-    component: CheckOutCouponApplyPage,
+    path: '/restaurant/',
+    component: RestaurantPage,
+  },
+  {
+    path: '/breadcrumbs/',
+    component: BreadCrumbPage,
   },
   {
     path: '/checkout-payment-method/',
@@ -79,8 +89,28 @@ var routes = [
     component: ElementsPage,
   },
   {
-    path: '/item-details/',
-    component: ItemDetailsPage,
+    path: '/item-details-pizza/',
+    component: ItemDetailsPizzaPage,
+  },
+  {
+    path: '/item-details-kfc/',
+    component: ItemDetailsKFCPage,
+  },
+  {
+    path: '/item-details-pills/',
+    component: ItemDetailsPillsPage,
+  },
+  {
+    path: '/v-pills/',
+    component: ItemDetailsPillsPage,
+  },
+  {
+    path: '/item-details-tea/',
+    component: ItemDetailsTeaPage,
+  },
+  {
+    path: '/item-details-bon/',
+    component: ItemDetailsBonPage,
   },
   {
     path: '/login-screen/',
@@ -93,10 +123,6 @@ var routes = [
   {
     path: '/messages-list/',
     component: MessagesListPage,
-  },
-  {
-    path: '/checkout-coupon-apply/',
-    component: CheckOutCouponApplyPage,
   },
   {
     path: '/checkout-payment-method/',
@@ -155,10 +181,6 @@ var routes = [
     component: ShoppingCartPage,
   },
   {
-    path: '/signup/',
-    component: SignUpPage,
-  },
-  {
     path: '/store-locations/',
     component: StoreLocationsPage,
   },
@@ -169,6 +191,10 @@ var routes = [
   {
     path: '/tracking/',
     component: TrackingPage,
+  },
+  {
+    path: '/tracking-done/',
+    component: TrackingDonePage,
   },
   {
     path: '/wishlist/',
@@ -183,16 +209,20 @@ var routes = [
     component: WelcomePage,
   },
   {
-    path: '/signin/',
-    component: SigninPage,
-  },
-  {
     path: '/about/',
     component: AboutPage,
   },
   {
+    path: '/signin/',
+    component: SigninPage,
+  },
+  {
+    path: '/signup/',
+    component: SignUpPage,
+  },
+  {
     path: '(.*)',
-    component: NotFoundPage,
+    component: FirstPage,
   },
 ];
 

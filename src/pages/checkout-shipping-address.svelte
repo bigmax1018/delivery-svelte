@@ -10,10 +10,8 @@
             <div class="right">
                 <a href="#" class="link panel-open" data-panel="left">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M14 12C14 10.8955 13.1046 10 12 10C10.8954 10 10 10.8955 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12Z" fill="black"/>
-						<path d="M14 20C14 18.8954 13.1046 18 12 18C10.8954 18 10 18.8954 10 20C10 21.1045 10.8954 22 12 22C13.1046 22 14 21.1045 14 20Z" fill="black"/>
-						<path d="M14 4C14 2.89544 13.1046 2.00001 12 2.00001C10.8954 2.00001 10 2.89544 10 4C10 5.10457 10.8954 6 12 6C13.1046 6 14 5.10457 14 4Z" fill="black"/>
-					</svg>
+										<path d="M3 8.40009V21.0001C3 21.2653 3.10536 21.5197 3.29289 21.7072C3.48043 21.8947 3.73478 22.0001 4 22.0001H20C20.2652 22.0001 20.5196 21.8947 20.7071 21.7072C20.8946 21.5197 21 21.2653 21 21.0001V8.40009C21.0001 8.23646 20.96 8.07531 20.8833 7.93077C20.8066 7.78623 20.6956 7.66273 20.56 7.5711L12.56 2.1711C12.3946 2.05932 12.1996 1.99959 12 1.99959C11.8004 1.99959 11.6054 2.05932 11.44 2.1711L3.44 7.5711C3.30443 7.66273 3.19342 7.78623 3.11671 7.93077C3.03999 8.07531 2.99992 8.23646 3 8.40009ZM14 20.0001H10V14.0001H14V20.0001ZM5 8.9321L12 4.2071L19 8.9321V20.0001H16V13.0001C16 12.7349 15.8946 12.4805 15.7071 12.293C15.5196 12.1055 15.2652 12.0001 15 12.0001H9C8.73478 12.0001 8.48043 12.1055 8.29289 12.293C8.10536 12.4805 8 12.7349 8 13.0001V20.0001H5V8.9321Z" fill="#04764E"/>
+									</svg>
 				</a>
             </div>
         </div>
@@ -29,12 +27,12 @@
 				</li>
 				<li>
 					<a class="nav-link active" href="/checkout-shipping-address/">
-						<span>Shipping Address</span> 
+						<span>Dropoff Location</span> 
 					</a>
 				</li>
 				<li>
-					<a class="nav-link" href="/checkout-coupon-apply/">
-						<span>Coupon Apply</span>
+					<a class="nav-link" href="/tracking/">
+						<span>Drone Tracking</span>
 					</a>
 				</li>
 			</ul>
@@ -44,11 +42,16 @@
 			<form class="form-elements">
 				<div class="list">
 					<ul class="grid grid-cols-1">
-						<li class="item-content item-input item-input-with-value">
+						<li class="item-content item-input">
 							<div class="item-inner">
-								<div class="item-title item-label">Card Holder Name</div>
-								<div class="item-input-wrap">
-									<input type="text" placeholder="Your Name" value="Samuel Witwicky" class="form-control"/>
+								<div class="item-title item-label">Dropoff Location</div>
+								<div class="item-input-wrap input-dropdown-wrap">
+									<select bind:value={dropoffLocation} class="form-control default-select input-with-value">
+										<option disabled selected>Eligir tu Ubicacion</option>
+										<option>Villa Mella #1</option>
+										<option>Villa Mella #2</option>
+										<option>Villa Mella #3</option>
+									</select>
 								</div>
 							</div>
 						</li>
@@ -57,19 +60,6 @@
 								<div class="item-title item-label">Zip/postal Code</div>
 								<div class="item-input-wrap">
 									<input type="number" class="form-control"/>
-								</div>
-							</div>
-						</li>
-						<li class="item-content item-input">
-							<div class="item-inner">
-								<div class="item-title item-label">Country</div>
-								<div class="item-input-wrap input-dropdown-wrap">
-									<select class="form-control default-select input-with-value">
-										<option>Choose your country</option>
-										<option>USA</option>
-										<option>China</option>
-										<option>India</option>
-									</select>
 								</div>
 							</div>
 						</li>
@@ -109,12 +99,24 @@
 		</div>
 	</div>
 	<div class="toolbar toolbar-bottom footer-button padding container">
-		<a href="/checkout-coupon-apply/" class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
+		<a href="/tracking/" on:click={setDropoffStore} class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
 	</div>
 </div>
 
 <script>
 	import { Link } from 'framework7-svelte';
+	import { dropoffStore } from '../js/store.js';
+	import { onMount } from 'svelte';
+
+	let dropoffLocation;
+
+	onMount(() => {
+		dropoffStore.set(null); // or set to another default value
+	});
+
+	function setDropoffStore() {
+		dropoffStore.set(dropoffLocation);
+	}
 </script>
 
 <style>

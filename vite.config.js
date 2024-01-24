@@ -2,10 +2,9 @@
 import path from 'path';
 
 
-
 const SRC_DIR = path.resolve(__dirname, './src');
 const PUBLIC_DIR = path.resolve(__dirname, './public');
-const BUILD_DIR = path.resolve(__dirname, './www',);
+const BUILD_DIR = path.resolve(__dirname, './output',);
 export default async () => {
   const { svelte } = await import('@sveltejs/vite-plugin-svelte');
   return  {
@@ -13,6 +12,14 @@ export default async () => {
       svelte(),
 
     ],
+    css: {
+      postcss: {
+        plugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+        ],
+      },
+    },
     root: SRC_DIR,
     base: '',
     publicDir: PUBLIC_DIR,

@@ -42,6 +42,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 */
 /* Reset */
+
+.panel-backdrop {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 ::selection {
   color: #fff;
   background: var(--f7-theme-color); }

@@ -1,2 +1,7 @@
-# drone-svelte
- not backend (with out logic) only frontend
+# Merging UI
+
+## We Still Need:
+
+- login working again (appwrite)
+- The firebase deploy to work
+ 

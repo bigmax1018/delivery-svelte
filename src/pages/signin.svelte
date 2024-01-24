@@ -22,9 +22,10 @@
 							<ul class="grid grid-cols-1">
 								<li class="item-content item-input">
 									<div class="item-inner">
-										<div class="item-title item-label">Username</div>
+										<div class="item-title item-label">Email</div>
 										<div class="item-input-wrap">
-											<input type="email" placeholder="Email Address" value="info@example.com" class="form-control"/>
+											<input type="email" placeholder="Email Address" 
+											bind:value={email} class="form-control"/>
 										</div>
 									</div>
 								</li>
@@ -32,7 +33,8 @@
 									<div class="item-inner">
 										<div class="item-title item-label">Password</div>
 										<div class="item-input-wrap">
-											<input type="password" placeholder="Password" class="form-control"/>
+											<input type="password" placeholder="Password"
+											bind:value={password} class="form-control"/>
 											<div class="show-pass">
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M22.919 11.606C22.786 11.3 19.572 4.00002 12 4.00002C4.42801 4.00002 1.21401 11.3 1.08101 11.606C1.02764 11.7305 1.00012 11.8646 1.00012 12C1.00012 12.1355 1.02764 12.2695 1.08101 12.394C1.21401 12.7 4.42801 20 12 20C19.572 20 22.786 12.7 22.919 12.394C22.9724 12.2695 22.9999 12.1355 22.9999 12C22.9999 11.8646 22.9724 11.7305 22.919 11.606ZM12 18C6.60001 18 3.83301 13.411 3.11001 12C3.83501 10.614 6.64801 6.00002 12 6.00002C17.394 6.00002 20.165 10.586 20.89 12C20.164 13.386 17.352 18 12 18Z" fill="#309F5F"/>
@@ -45,7 +47,7 @@
 							</ul>
 						</div>
 						<div class="clearfix">
-							<a href="/home/" class="button-large button rounded-xl button-fill">LOGIN</a>
+							<a class="button-large button rounded-xl button-fill" on:click={login(email, password)}>LOGIN</a>
 							<p class="form-text">Forgot Password? <a href="#tabA2" data-route-tab-id="tabA2" class="tab-link ml-5">Reset Password</a></p>
 						</div>
 						<div class="text-align-center account-footer pb-30">
@@ -108,6 +110,45 @@
 		return $render;
 	}  
 </script> -->
+<script>
+let email = '';
+let password = '';
+import { account } from '../js/appwrite';
+import { writable } from 'svelte/store';
+import { f7 } from 'framework7-svelte';
+
+export let f7router;
+
+let store = writable(null);
+
+const init = () => {
+	try {
+		store.set(account.get());
+	} catch (e) {
+		store.set(null);
+	}
+}
+ 
+const login = async (email, password) => {
+	const promise = account.createEmailSession(email, password);
+	init();
+	promise.then(function (response) {
+		f7router.navigate('/home/');
+		console.log(response); // Success
+	}, function (error) {
+		let toast = f7.toast.create({
+			text: `${error.message}`,
+			position: 'top',
+			closeButton: true,
+			closeButtonText: 'Close',
+			closeButtonColor: 'red',
+			closeTimeout: 3000,
+		});
+		toast.open();
+		console.log(error.message); // Failure
+	});
+}
+</script>
 
 <style>
 .item-content::before,
