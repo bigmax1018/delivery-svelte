@@ -6,7 +6,8 @@
   import {
     APPWRITE_FOOD_COLLECTION_ID,
     FOOD_TAG_POPULAR,
-    FOOD_TAG_FAVOURITES
+    FOOD_TAG_FAVOURITES,
+    FOOD_TAG_FEATURED,
   } from "../js/constants.js";
 
   let foodItems = [];
@@ -125,7 +126,7 @@
       >
         <!-- Display the favourite food items using loop -->
         {#each foodItems as foodItem}
-          {#if foodItem.Food_Tag == FOOD_TAG_FAVOURITES}
+          {#if foodItem.Food_Tag == FOOD_TAG_FEATURED}
             <swiper-slide style="width:auto" class="pl-4">
               <div class="card-overlay style-1 bg-primary">
                 <div class="dz-media">

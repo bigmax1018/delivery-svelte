@@ -21,8 +21,10 @@
 		
 		<!-- Map -->
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17548787.66139891!2d79.32638741782908!3d25.447855407763893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1619499827514!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-		
+
+
 		<div class="bottom-wraper">
+		<img src="../assets/dronegif.gif" alt="gif" class="w-[50vw] ml-40" style="padding-bottom:20vh">
 			<div class="container track-content">
 				<div class="map-dir">
 					<p class="ma-0">Estimated Time</p>
@@ -100,20 +102,19 @@
 	let AllOrders = [];
 
     let unsubscribeFoodStore = foodStore.subscribe(value => {
-        foodValue = value;
-    });
+        foodValue = value;	});
 
     let unsubscribeDropoffStore = dropoffStore.subscribe(value => {
-        dropoffValue = value;
-    });
+        dropoffValue = value;	});
 
     let logged = false;
     $: if (foodValue && dropoffValue && !logged) {
         console.log('foodStore:', foodValue);
         console.log('dropoffStore:', dropoffValue);
-		//orders.createFakeOrder(id, foodValue, dropoffValue);
-        logged = true;
-    }
+        logged = true;	}
+
+    onMount(() => {
+        console.clear();	});
 
     onMount(async () => {
         console.clear();
@@ -123,6 +124,6 @@
 
     onDestroy(() => {
         unsubscribeFoodStore();
-        unsubscribeDropoffStore();
-    });
+        unsubscribeDropoffStore();	});
+
 </script>
