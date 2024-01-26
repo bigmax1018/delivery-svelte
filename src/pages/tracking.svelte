@@ -20,7 +20,8 @@
 	<div class="page-content pt-0">
 		
 		<!-- Map -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17548787.66139891!2d79.32638741782908!3d25.447855407763893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1619499827514!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+		<iframe src="https://www.google.com/maps/embed/v1/place?q=Santo+Domingo,+Dominican+Republic&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" 
+		allowfullscreen="" loading="lazy"></iframe>
 
 
 		<div class="bottom-wraper">

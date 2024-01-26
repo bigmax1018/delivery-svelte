@@ -414,7 +414,7 @@
 		  </select> <br />
   
 		  <button
-			class="button-large button button-fill rounded-xl w-[40vw]"
+			class="button-large button button-fill rounded-xl w-[40vw] p-12"
 			type="submit">
 			UPLOAD FOOD ITEM
 		  </button>
