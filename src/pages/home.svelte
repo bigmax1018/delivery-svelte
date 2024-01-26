@@ -17,9 +17,9 @@
   });
 </script>
 
-<Page name="home">
+<div class="page page-home">
   <!-- Page Content -->
-  <div class="page-content content-area">
+  <div class="page-content content-area pt-40 pb-0">
     <!-- Search backdrop -->
     <div class="searchbar-backdrop"></div>
     <div class="container">
@@ -437,4 +437,4 @@
       </div>
     </div>
   </div>
-</Page>
+</div>
