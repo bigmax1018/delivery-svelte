@@ -166,12 +166,12 @@
 					  <div class="item-content swipeout-content">
 						<div class="item-inner">
 						  <div class="item-media">
-							<a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							<a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 						  </div>
 						  <div class="item-info">
 							<div class="item-head">
 							  <h6 class="item-title">
-								<a href="/item-details/">{foodItem.Food_Title}</a>
+								<a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 							  </h6>
 							</div>
 							<div class="item-foot">
@@ -215,12 +215,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details/">{foodItem.Food_Title}</a>
+								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -264,12 +264,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details/">{foodItem.Food_Title}</a>
+								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">

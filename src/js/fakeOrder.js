@@ -53,7 +53,7 @@ const manageOrders = () => {
       
       async function getOrderStatus() {
         try {
-          const response = await axios.get(`${orderUrl}/orderStatus`);
+          const response = await axios.get(`https://droneapiweb20240125135113.azurewebsites.net/order/orderStatus`);
       
           if (response.status === 200) {
               orderStatus = response.data;
@@ -62,6 +62,7 @@ const manageOrders = () => {
               if (response.data === 'Order Completed') {
                   await completeOrder();
               }
+              return response;
           } else {
               console.log('Error getting order status:', response.status, response.data);
           }
