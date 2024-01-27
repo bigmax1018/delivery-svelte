@@ -1,0 +1,86 @@
+// Tabbar Styles
+.tabbar{
+
+	&.tab-style-1{
+		height: 56px;
+		background-color: transparent;
+		z-index: 9;
+		
+		.toolbar-inner{
+			margin-left: -4px;
+			margin-right: -4px;
+		}
+		
+		&:before,
+		&:after{
+			content:none;
+		}
+		.tab-link-highlight{
+			display: none;
+		}
+		.tab-link{
+			font-size: 16px;
+			line-height: 16px;
+			text-transform: capitalize;
+			letter-spacing: unset;
+			font-weight: 500;
+			width: auto;
+			padding: 14px 24px;
+			height: 46px;
+			background-color: transparent;
+		    border-radius: 30px;
+			border: 1px solid var(--f7-theme-color);
+			color: var(--f7-theme-color);
+			margin-left: 4px;
+			margin-right: 4px;
+			
+			&.tab-link-active{
+				color: #fff;
+				background-color: var(--f7-theme-color);
+			}
+		}
+		.swiper-slide{
+			width: auto;
+		}
+	}
+	&.tab-style-2{
+		background-color: transparent;
+		margin-left: -20px;
+		border-bottom: 1px solid var(--border-color);
+		
+		&:before,
+		&:after{
+			content:none;
+		}
+		.tab-link-highlight{
+			display: none;
+		}
+		
+		.swiper-slide{
+			width: auto;
+			&:first-child {
+				margin-left: 20px;
+			}
+		}
+		
+		.tab-link{
+			font-size: 18px;
+			letter-spacing: unset;
+			text-transform: capitalize;
+			border-bottom: 3px solid;
+			border-color: transparent;
+			opacity: 0.7;
+			height: 50px;
+			padding: 10px 15px;
+			
+			&.tab-link-active{
+				border-color: var(--f7-theme-color);				
+				opacity: 1;
+			}
+		}
+		@include respond('tab-port') {
+			margin-right: -20px;
+		}
+	}
+
+}

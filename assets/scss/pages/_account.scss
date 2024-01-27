@@ -1,0 +1,236 @@
+/* Login Register Account */
+.account-area{
+	.page-content{
+		padding-top: 35px;
+	}	
+	.main-logo{		
+		justify-content: center;
+		margin-bottom: 50px;
+	}	
+	.block{
+	    padding: 0 30px;
+		margin: 25px 0;
+	}
+	.swiper-slide,
+	.swiper-wrapper,
+	.tabs-swipeable-wrap{
+		height:auto;
+	}
+	p{
+		color: #000000;
+	}
+	
+	.tabbar{
+		margin-bottom: 30px;
+	}
+
+	// Title Head
+	.title-head{
+		margin-bottom: 30px;
+		p{
+			margin: 0;
+		}
+		.title{
+			margin-top: 0;	
+			margin-bottom: 10px;	
+		}
+	}
+	.account-footer{
+		margin: 40px 0 0;
+		
+		p{
+			font-weight: 500;
+			opacity: 0.4;
+		}
+		
+		.form-text{
+			font-size: 14px;
+			margin: 0 0 10px;
+			opacity: 1;
+			
+			a{
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+// Social Account
+.social-account {
+    margin-top: 30px;
+    text-align: center;
+		
+	p{
+		margin: 5px 0;
+	}
+	a{
+		width: 36px;
+		display: inline-block;
+		margin-left: 20px;
+		
+		img{
+			width:100%;
+		}
+	}
+}
+
+// Form Elements
+.form-elements{
+	.list{
+		margin-top:0;
+		margin-bottom: 10px;
+	}
+	ul{
+		background:transparent;
+		&:before,
+		&:after{
+			content:none;
+		}
+		.item-content{
+			padding:0;
+			
+			.item-media{
+				position: absolute;
+				left: 24px;
+				min-width: auto;
+				top: 10px;
+				z-index: 1;
+			}
+			.item-media + .item-inner{
+				margin-left: 0;
+				.item-input-wrap{
+					.form-control{
+						padding: 15px 25px 15px 64px;
+					}
+				}
+			}
+			
+			   			
+			.item-inner{
+				padding:0;
+				
+				.item-label{
+					font-size: 14px;
+					color: #8a8a8a;
+					margin-bottom: 10px;
+				}
+				.item-input-wrap{
+					margin-bottom:25px;
+					&.mb-0{
+						margin-bottom:0;					
+					}
+					&:after{
+						content:none  !important;
+					}
+					.form-control{
+						background: transparent;
+						height: 60px;
+						border: 2px solid;
+						border-color: #e9e9e9;
+						border-width: 0 0 2px;
+						font-size: 16px;
+						color: #000000;
+						font-weight: 400;
+						@include transitionMedium;
+						&::placeholder{
+							color: #8B8B8B;
+						}
+						
+						&:active,
+						&:focus{
+							border-color: var(--f7-theme-color);
+						}
+					}
+					&.item-input-group{
+						display: flex;
+					}
+					
+					&.input-dropdown-wrap{
+						&:before{
+							content: "\f078";
+							position: absolute;
+							right: 20px;
+							top: 21px;
+							font-size: 12px;
+							font-family: "Font Awesome 5 Free";
+							font-weight: 900;
+						}
+						&.dropdown-left{
+							&:before{
+								right: auto;
+								left: 16px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.form-text{
+		color: #656565;
+		margin: 20px 0 0;
+		a{
+			font-weight: 600;
+			text-decoration: underline;
+			overflow: hidden;
+			padding: 2px;
+		}
+	}
+}
+.input-dropdown-wrap:before {
+	content: "\f0d7";
+    right: 40px;
+    top: 18px;
+    position: absolute;
+    z-index: 99;
+    border: 0;
+    font-family: 'FontAwesome';
+    font-weight: 900;
+    font-size: 18px;
+    margin: 0;
+	color: var(--f7-theme-color);
+}
+
+// Checkbox
+.checkbox-form-control{
+	width: 100%;
+    display: flex;
+    align-items: center;
+	
+	.checkbox{
+		float: left;
+		margin-right: 15px;
+	}
+	.checkbox-text{
+		font-weight: 500;
+		color: #000;
+		font-size: 16px;
+		margin: 0;
+	}
+}
+
+// Show Pass
+.show-pass{
+	position: absolute;
+    right: 20px;
+    top: 18px;
+	&:after{
+		content: "";
+		background-color: var(--f7-theme-color);
+		width: 2px;
+		height: 20px;
+		position: absolute;
+		top: 2px;
+		left: 11px;
+		transform: rotate(40deg);
+		display: block;
+	}
+	&.active{
+		&:after{
+			display: none;
+		}
+	}
+	[fill]{
+		fill: var(--f7-theme-color);
+	}
+}

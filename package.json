@@ -1,0 +1,63 @@
+{
+  "name": "drone-svelte",
+  "private": true,
+  "version": "1.0.0",
+  "description": "drone-svelte",
+  "repository": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "npm run build-prod",
+    "build-dev": "cross-env NODE_ENV=development node ./build/build.js",
+    "build-prod": "cross-env NODE_ENV=production node ./build/build.js",
+    "postinstall": "cpy --flat ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy --flat ./node_modules/material-icons/iconfont/*.* ./src/fonts/"
+  },
+  "browserslist": [
+    "IOS >= 15",
+    "Safari >= 15",
+    "last 5 Chrome versions",
+    "last 5 Firefox versions"
+  ],
+  "dependencies": {
+    "appwrite": "^13.0.1",
+    "axios": "^1.6.5",
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^12.0.0",
+    "css-loader": "^6.9.0",
+    "dom7": "^4.0.6",
+    "file-loader": "^6.2.0",
+    "firebase": "^10.7.1",
+    "firebase-cli": "^1.2.0",
+    "framework7": "^8.3.0",
+    "framework7-icons": "^5.0.5",
+    "framework7-svelte": "^8.3.0",
+    "html-webpack-plugin": "^5.6.0",
+    "less-loader": "^11.1.4",
+    "locate-path": "^7.2.0",
+    "material-icons": "^1.13.12",
+    "mini-css-extract-plugin": "^2.7.7",
+    "postcss-loader": "^7.3.4",
+    "skeleton-elements": "^4.0.1",
+    "style-loader": "^3.3.4",
+    "svelte": "^4.2.8",
+    "svelte-loader": "^3.1.9",
+    "swiper": "^11.0.5",
+    "url-loader": "^4.1.1",
+    "uuid": "^9.0.1",
+    "webpack": "^5.89.0",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "autoprefixer": "^10.4.16",
+    "cpy-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
+    "less": "^4.2.0",
+    "postcss": "^8.4.33",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.0.11",
+    "workbox-cli": "^7.0.0"
+  }
+}

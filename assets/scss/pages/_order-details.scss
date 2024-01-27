@@ -1,0 +1,69 @@
+// Order Details
+.order-details{
+	.location{
+		display: flex;
+		margin-bottom: 15px;
+		justify-content: space-between;
+		
+		align-items: center;
+		.button{
+			border-radius: 12px;
+			padding: 15px 20px;
+			text-transform: capitalize;
+		}
+		p{
+			opacity: 0.6;
+			margin: 0;
+		}
+	}
+	// Author
+	.author-bx{
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		text-align: left;
+		padding: 0;
+		
+		.thumb{
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right: 20px;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.info{
+			margin-right: 20px;
+			p{
+				margin: 0;
+			}
+		}
+		.author-name{
+			margin: 0;
+		}
+		.phone{
+			height: 52px;
+			width: 52px;
+			border-radius: 50%;
+			border: 1px solid rgba(0,0,0,0.1);
+			text-align: center;
+			line-height: 52px;
+			margin-left: auto;
+			svg{
+				height: 52px;
+			}
+			path[fill],
+			path{
+				fill: var(--f7-theme-color);
+			}
+			i{
+				color: var(--f7-theme-color);
+			}
+		}
+	}
+
+}

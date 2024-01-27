@@ -1,0 +1,188 @@
+/* Theme Dark */
+.dark{
+	// Heading Color
+	h1, h2, h3, h4, h5, h6,
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+	.navbar .navbar-inner .title{
+		color: #fff;
+	}
+	body{
+		color: #cecece;
+	}	
+}
+
+/* Border Color */
+.dark{
+	.navbar,
+	.menubar-area,
+	.border-top,
+	.searchbar.search-box .searchbar-input-wrap input,
+	.form-elements ul .item-content .item-inner .item-input-wrap .form-control,
+	.messagebar .toolbar-inner,
+	.page-content .searchbar.search-box .searchbar-input-wrap input,
+	.form-elements ul .item-content .item-inner .item-input-wrap .number-select,
+	.search-list-bar ul li,
+	.button-social.google,
+	.navbar.navbar-style-1 a.link,
+	.categories-bx,
+	.item-details .stepper{
+		border-color: #333333;		
+	}
+	
+	input{
+		color: rgba(255,255,255,0.9) !important;
+		&::placeholder{
+			color: rgba(255,255,255,0.7) !important;
+		}
+	}
+}
+
+/* Background Color */
+.dark{
+	body,
+	.page,
+	.page-content,
+	.tab-style-1,
+	.footer-button,
+	.page-onboading .page-content,
+	.card-featured .icon-bx,
+	.light.page, 
+	.light .page-content, 
+	.light .navbar, 
+	.light .toolbar,
+	.toolbar.messagebar,
+	.nav-wizard,
+	.dz-accordion .accordion-item .item-link.item-content .item-title:before{
+		background:#151515;	
+	}
+	.navbar .navbar-bg{
+		background:#151515!important;	
+	}
+	.page.bg-gray, .page-content.bg-gray{
+		background: #080808 !important;
+	}
+	.nav-wizard:after {
+		background: -moz-linear-gradient(left, #151515 0%, rgba(255, 255, 255, 0) 54%, #151515 100%);
+		background: -webkit-linear-gradient(left, #151515 0%, rgba(255, 255, 255, 0) 54%, #151515 100%);
+		background: linear-gradient(to right, #151515 0%, rgba(255, 255, 255, 0) 54%, #151515 100%);
+	}
+}
+
+/* Background Color Dark 2 */
+.dark{
+	.view-logo .logo-icon,
+	.page-content .searchbar.search-box .searchbar-input-wrap input,
+	.tabbar.tab-style-1 .toolbar-inner,
+	.button.button-gray,
+	.categories-bx,
+	.dz-range .range-slider .range-bar,
+	.messagebar .toolbar-inner .demo-send-message-link,
+	.navbar.navbar-style-1 .navbar-inner .link.back,
+	.store-card,
+	.notification-list .card,
+	.widget_getintuch ul li .icon-bx,
+	.wishlist-bx{
+		background-color:#000;	
+	}
+}
+
+/* Theme Color White */
+.dark{
+	.text-black,
+	.form-elements ul .item-content .item-inner .item-input-wrap .form-control,
+	.navbar.navbar-transparent.navbar-transparent-visible .title, 
+	.navbar.navbar-transparent.navbar-transparent-visible a, 
+	.navbar.navbar-transparent.navbar-transparent-visible i,
+	.navbar a.link,
+	.tab-style-1 .tab-link.tab-link-active,
+	.search-list-bar .item-content .item-inner .item-title-row .item-title,
+	.tabbar.tab-style-1 .tab-link.tab-link-active,
+	.tabbar.tab-style-2 .tab-link,
+	.panel-close i,
+	.notification-bar span,
+	.featured-card .location,
+	.company-details .head-details .block-btn .title,
+	.get-started p,
+	.item-bx .price,
+	.item-details .price-bx .price del,
+	.item-details .stepper input{
+		color:#cecece;
+	}
+}
+
+/* Theme Dark Color Fill White */
+.dark{
+	.navbar a.link path[fill],
+	.navbar a.link path,
+	.navbar a.link rect,
+	.navbar a.link rect[fill],
+	.navbar a.link [fill],
+	.navbar.navbar-style-1 
+	.navbar-inner .link.back [fill], 
+	.navbar.navbar-style-1 .navbar-inner .link.back path{
+		fill: #fff;
+	}
+}
+
+/* Theme Color Second */
+.dark{
+	.search-list-bar .item-content .item-inner .item-text,
+	.form-elements ul .item-content .item-inner .item-input-wrap .form-control::placeholder,
+	.account-area p,
+	.account-area .form-text{
+		color:#969696;
+	}
+}
+
+.dark{
+	.navbar.navbar-style-1.navbar-transparent .link.back {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+	.navbar.navbar-style-1.navbar-transparent.navbar-transparent-visible .title,
+	.dz-accordion .accordion-item .item-link.item-content .item-title,
+	.checkbox-form-control .checkbox-text,
+	.nav-wizard li .nav-link span,
+	.wishlist-bx .price{
+		color: #fff;
+	}
+}
+
+/* Background Color White */
+.dark{
+	.swiper-pagination-bullet{
+		background: #fff;
+	}
+}
+
+/* Theme Color Dark Variable */
+.ios .dark,
+.ios.dark {
+	--f7-text-color: #fff;
+	--f7-bars-bg-color: #121212;
+	--f7-bars-bg-color-rgb: 22, 22, 22;
+	--f7-bars-border-color: rgba(255, 255, 255, 0.16);
+    --f7-page-bg-color: #040e01;
+}
+:root .dark,
+:root.dark,
+:root.md.dark{
+	--f7-bars-text-color: #fff;
+	--f7-block-title-text-color: #fff;
+	--f7-block-strong-border-color: rgba(255, 255, 255, 0.15);
+	--f7-block-title-medium-text-color: #fff;
+	--f7-block-title-large-text-color: #fff;
+	--f7-block-strong-bg-color: #030b00;
+	--f7-list-button-border-color: rgba(255, 255, 255, 0.15);
+	--f7-list-bg-color: #030b00;
+	--f7-list-border-color: rgba(255, 255, 255, 0.15);
+	--f7-list-item-border-color: rgba(255, 255, 255, 0.15);
+	--f7-list-item-divider-border-color: rgba(255, 255, 255, 0.15);
+	--f7-list-item-divider-bg-color: #232323;
+	--f7-list-group-title-bg-color: #232323;
+	--f7-list-chevron-icon-color: rgba(255, 255, 255, 0.3);
+	--f7-card-bg-color: #030b00;
+	--f7-bars-bg-color: #030b00;
+	--f7-theme-color-light: #040e01;
+	--f7-theme-color-white: #151515;
+	--border-color: #333333;
+}

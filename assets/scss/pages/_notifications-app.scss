@@ -1,0 +1,96 @@
+/* Notification List */
+.notification-list{
+	padding: 0;
+	ul{
+		padding: 0;
+		margin: 0;
+		li{
+			margin: 0 0 15px 0;
+			display: block;
+			
+			.card{
+				padding: 20px 20px;
+				border-radius: $border-radius;
+				margin: 0;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			.item-title{
+				margin: 0 0 12px;
+				
+				i{
+					font-size: 14px;
+					margin-right: 5px;
+				}
+			}
+			.item-text{
+				font-size: 14px;
+				margin-bottom: 15px;
+				line-height: 22px;
+			}
+			.item-time{
+				display: flex;
+				justify-content: space-between;
+				font-size: 14px;
+				color:#787878;
+			}
+			.time{
+				i{
+					font-size: 16px;
+					margin-right: 3px;
+				}
+			}
+			.mark{
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+// Notification Bar
+.notification-bar{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+	
+	.title{
+		margin: 0;
+	}
+	span{
+		display: block;
+		margin-bottom: 5px;
+		color: #000;
+	}
+	.media{
+		position: relative;
+		
+		img{
+			height: 46px;
+			width: 46px;
+			border-radius: $border-radius;
+		}
+		
+		.active{
+			color: var(--f7-theme-color);
+			font-size: 13px;
+			border: 2px solid #fff;
+			position: absolute;
+			right: -5px;
+			top: -5px;
+			border-radius: 50%;
+		}
+	}
+}
+.active-badge{
+	position: relative;
+    display: flex;
+	.active{
+		font-size: 6px;
+		border: 2px solid var(--f7-theme-color-white);
+		border-radius: 50%;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}

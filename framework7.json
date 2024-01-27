@@ -1,0 +1,18 @@
+{
+  "cwd": "C:\\Users\\a\\Desktop\\drone-svelte",
+  "type": [
+    "pwa"
+  ],
+  "name": "drone-svelte",
+  "framework": "svelte",
+  "template": "split-view",
+  "bundler": "vite",
+  "cssPreProcessor": "less",
+  "theming": {
+    "customColor": false,
+    "color": "#40ff00",
+    "darkMode": false,
+    "iconFonts": true
+  },
+  "customBuild": false
+}

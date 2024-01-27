@@ -1,0 +1,46 @@
+// Main Logo
+.main-logo{
+	&.center{
+		text-align: center;
+		.logo-name{
+			font-size: 38px;
+			margin: 10px 0 0;
+		}
+		p{
+			margin: 10px 0 0;
+		}
+	}
+	&.left{
+		position: relative;
+		display: flex;
+		align-items: center;
+		text-align: left;
+		.logo-icon{
+			margin-right: 10px;
+		}
+		.logo-name{
+			font-size: 28px;
+			margin: 0;
+			line-height: 30px;
+		}
+		p{
+			margin: 0;
+		}
+	}
+}
+
+.welcome-screen{	
+	.welcome-inner{
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-between;
+		padding-top: 80px;
+		padding-bottom: 40px;
+	}
+	@media (max-width: 328px){
+		.welcome-inner{
+			height: auto;
+		}
+	}
+}

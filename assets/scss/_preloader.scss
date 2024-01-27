@@ -1,0 +1,68 @@
+/* button loader */
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background-color: var(--f7-theme-color);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+// Loading Area
+#loading-area {
+	position: relative;
+	margin: auto;
+	padding: 15px;
+	height: 100%;
+	
+	.load-icon{
+		margin: 0 0 0 10px;
+	}	
+	.load-text{
+		font-size: 38px;
+		line-height: 38px;
+		color: #fff;
+		display: flex;
+		margin: 10px 0 0;
+		justify-content: center;
+		span{
+			margin: 0 1px;
+			animation:flip 2.6s infinite linear;
+			transform-origin:0 70%;
+			transform-style:preserve-3d;
+			-webkit-transform-style:preserve-3d;
+			
+			&:nth-child(2){
+				animation-delay: 0.3s;
+			}
+			&:nth-child(3){
+				animation-delay: 0.6s;
+			}
+			&:nth-child(4){
+				animation-delay: 0.9s;
+			}
+			&:nth-child(5){
+				animation-delay: 1.2s;
+			}
+			&:nth-child(6){
+				animation-delay: 1.5s
+			}
+			&:nth-child(7){
+				animation-delay: 1.8s
+			}
+		}
+	}	
+}
+
+@keyframes flip{
+	35%{
+		transform: rotateX(360deg);
+	}
+	100%{
+		transform: rotatex(360deg);
+	}
+}
