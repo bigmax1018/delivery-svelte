@@ -3,6 +3,18 @@ import { v4 as uuidv4 } from "uuid";
 import { writable } from "svelte/store";
 import { f7 } from 'framework7-svelte';
 
+import {
+  APPWRITE_DATABASE_ID,
+  APPWRITE_PROJECT,
+  APPWRITE_ENDPOINT,
+  APPWRITE_ORDER_COLLECTION_ID,
+} from "./constants";
+import { Client, Databases, ID } from "appwrite";
+
+const client = new Client();
+client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);
+const databases = new Databases(client);
+
 export const orderStatusStore = writable(null);
 
 //const orderUrl = "http://localhost:5165/order";
@@ -50,6 +62,19 @@ const manageOrders = () => {
 
       if (response.status === 200 || response.status === 201) {
         console.log("Order created successfully:", response.data);
+        try {
+          await databases.createDocument(
+            APPWRITE_DATABASE_ID,
+            APPWRITE_ORDER_COLLECTION_ID,
+            ID.unique(),
+            fakeOrder
+          );
+        } catch (error) {
+          console.error(
+            "fakeorder.js create error while getting documents from DB: ",
+            error
+          );
+        }
       } else {
         console.log("Error creating order:", response.status, response.data);
       }

@@ -47,7 +47,6 @@ export const create = async (collectionId, data) => {
   }
 };
 
-
 const store = createStore({
   state: {
     products: [
