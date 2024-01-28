@@ -160,18 +160,74 @@
 		  <div id="tab-1" class="tab tab-active">
 			<div class="list cart-list search-list searchbar-found item-list">
 			  <ul>
+				<li class="swipeout cart-item">
+					<div class="item-content swipeout-content">
+						<div class="item-inner">
+							<div class="item-media">
+								<a href="/item-details-pizza/"><img src="../assets/img/menus/picpops.jpg" alt=""></a>
+							</div>
+							<div class="item-info">
+								<div class="item-head">
+									<h6 class="item-title"><a href="/item-details-pizza/">Lollipop Dulce</a></h6>
+								</div>
+								<div class="item-foot">
+									<ul>
+										<li class="item-price">$12</li>
+										<li class="">4x</li>
+										<li class="text-primary item-total">$48</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swipeout-actions-right">
+						<a href="#" class="swipeout-delete">
+							<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+							</svg>
+						</a>
+					</div>
+				</li>
+				<li class="swipeout cart-item">
+					<div class="item-content swipeout-content">
+						<div class="item-inner">
+							<div class="item-media">
+								<a href="/item-details-pizza/"><img src="../assets/img/menus/piccombo.jpg" alt=""></a>
+							</div>
+							<div class="item-info">
+								<div class="item-head">
+									<h6 class="item-title"><a href="/item-details-pizza/">KFC Combo #2</a></h6>
+								</div>
+								<div class="item-foot">
+									<ul>
+										<li class="item-price">$399</li>
+										<li class="">1x</li>
+										<li class="text-primary item-total">$399</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swipeout-actions-right">
+						<a href="#" class="swipeout-delete">
+							<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+							</svg>
+						</a>
+					</div>
+				</li>
 				{#each foodItems as foodItem}
 				  <!-- {#if foodItem.Food_Tag == FOOD_TAG_FAVOURITES} -->
 					<li class="swipeout cart-item">
 					  <div class="item-content swipeout-content">
 						<div class="item-inner">
 						  <div class="item-media">
-							<a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							<a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 						  </div>
 						  <div class="item-info">
 							<div class="item-head">
 							  <h6 class="item-title">
-								<a href="/item-details/">{foodItem.Food_Title}</a>
+								<a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 							  </h6>
 							</div>
 							<div class="item-foot">
@@ -209,18 +265,102 @@
 		  <div id="tab-2" class="tab">
 			<div class="list cart-list search-list searchbar-found item-list">
 				<ul>
+					<li class="swipeout cart-item">
+						<div class="item-content swipeout-content">
+							<div class="item-inner">
+								<div class="item-media">
+									<a href="/item-details-pizza/"><img src="../assets/img/menus/piccoke.jpg" alt=""></a>
+								</div>
+								<div class="item-info">
+									<div class="item-head">
+										<h6 class="item-title"><a href="/item-details-pizza/">Coca Cola</a></h6>
+									</div>
+									<div class="item-foot">
+										<ul>
+											<li class="item-price">$35</li>
+											<li class="">1x</li>
+											<li class="text-primary item-total">$35</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swipeout-actions-right">
+							<a href="#" class="swipeout-delete">
+								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+								</svg>
+							</a>
+						</div>
+					</li>
+					<li class="swipeout cart-item">
+						<div class="item-content swipeout-content">
+							<div class="item-inner">
+								<div class="item-media">
+									<a href="/item-details-pizza/"><img src="../assets/img/menus/piccheese.jpg" alt=""></a>
+								</div>
+								<div class="item-info">
+									<div class="item-head">
+										<h6 class="item-title"><a href="/item-details-pizza/">McDonald's Cheeseburger</a></h6>
+									</div>
+									<div class="item-foot">
+										<ul>
+											<li class="item-price">$99</li>
+											<li class="">2x</li>
+											<li class="text-primary item-total">$198</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swipeout-actions-right">
+							<a href="#" class="swipeout-delete">
+								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+								</svg>
+							</a>
+						</div>
+					</li>
+					<li class="swipeout cart-item">
+						<div class="item-content swipeout-content">
+							<div class="item-inner">
+								<div class="item-media">
+									<a href="/item-details-pizza/"><img src="../assets/img/menus/picsalad.jpg" alt=""></a>
+								</div>
+								<div class="item-info">
+									<div class="item-head">
+										<h6 class="item-title"><a href="/item-details-pizza/">Enselada Verde</a></h6>
+									</div>
+									<div class="item-foot">
+										<ul>
+											<li class="item-price">$240</li>
+											<li class="">2x</li>
+											<li class="text-primary item-total">$480</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swipeout-actions-right">
+							<a href="#" class="swipeout-delete">
+								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+								</svg>
+							</a>
+						</div>
+					</li>
 					{#each foodItems as foodItem}
 					{#if foodItem.Food_Tag == FOOD_TAG_ONDELIVERY}
 					  <li class="swipeout cart-item">
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details/">{foodItem.Food_Title}</a>
+								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -258,18 +398,74 @@
 		  <div id="tab-3" class="tab">
 			<div class="list cart-list search-list searchbar-found item-list">
 				<ul>
+					<li class="swipeout cart-item">
+						<div class="item-content swipeout-content">
+							<div class="item-inner">
+								<div class="item-media">
+									<a href="/item-details-pizza/"><img src="../assets/img/menus/picventi.jpg" alt=""></a>
+								</div>
+								<div class="item-info">
+									<div class="item-head">
+										<h6 class="item-title"><a href="/item-details-pizza/">Starbucks Venti Tea</a></h6>
+									</div>
+									<div class="item-foot">
+										<ul>
+											<li class="item-price">$120</li>
+											<li class="">1x</li>
+											<li class="text-primary item-total">$120</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swipeout-actions-right">
+							<a href="#" class="swipeout-delete">
+								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+								</svg>
+							</a>
+						</div>
+					</li>
+					<li class="swipeout cart-item">
+						<div class="item-content swipeout-content">
+							<div class="item-inner">
+								<div class="item-media">
+									<a href="/item-details-pizza/"><img src="../assets/img/menus/piccoffee.jpg" alt=""></a>
+								</div>
+								<div class="item-info">
+									<div class="item-head">
+										<h6 class="item-title"><a href="/item-details-pizza/">Original Hot Coffee</a></h6>
+									</div>
+									<div class="item-foot">
+										<ul>
+											<li class="item-price">$40</li>
+											<li class="">2x</li>
+											<li class="text-primary item-total">$80</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swipeout-actions-right">
+							<a href="#" class="swipeout-delete">
+								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z" fill="white"/>
+								</svg>
+							</a>
+						</div>
+					</li>
 					{#each foodItems as foodItem}
 					{#if foodItem.Food_Tag == FOOD_TAG_DONE}
 					  <li class="swipeout cart-item">
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details/"><img src={foodItem.Food_Image} alt="" /></a>
+							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details/">{foodItem.Food_Title}</a>
+								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -308,116 +504,111 @@
 	  </div>
   
   
-  <div id="foodform" style="display:none;">
-	  <br /><br />
-	  <center>
-		<form id="foodInfoForm" on:submit={uploadFoodItem}>
-		  {#if foodImage}
-			<img
-			  id="id_Food_Image"
-			  class="Food_Image w-[20vw] h-[20vw]"
-			  name="Food_Image"
-			  src={foodImage}
-			  alt="food image"
-			  on:click={() => {
-				fileinput.click();
-			  }}
+	  <div id="foodform" style="display:none;">
+		<br /><br />
+		<center>
+			<form id="foodInfoForm" on:submit={uploadFoodItem}>
+			{#if foodImage}
+				<img
+				id="id_Food_Image"
+				class="Food_Image w-[20vw] h-[20vw]"
+				name="Food_Image"
+				src={foodImage}
+				alt="food image"
+				on:click={() => {
+					fileinput.click();
+				}}
+				/>
+			{:else}
+				<img
+				id="id_Food_Image"
+				name="Food_Image"
+				src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+				class="Food_Image w-[20vw] h-[20vw]"
+				alt=""
+				on:click={() => {
+					fileinput.click();
+				}}
+				/>
+			{/if}
+			<br />
+			<input
+				style="display:none"
+				type="file"
+				accept=".jpg, .jpeg, .png"
+				required
+				on:change={(e) => onFileSelected(e)}
+				bind:this={fileinput}
 			/>
-		  {:else}
-			<img
-			  id="id_Food_Image"
-			  name="Food_Image"
-			  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
-			  class="Food_Image w-[20vw] h-[20vw]"
-			  alt=""
-			  on:click={() => {
-				fileinput.click();
-			  }}
+	
+			<input
+				type="text"
+				placeholder="Enter Food Title..."
+				id="foodbox1"
+				name="food_title"
+				required
+				class="text-align-center text-3xl w-[60vw]"
+				style="color:white; background-color:#a79c91;border-radius:10px;"
 			/>
-		  {/if}
-		  <br />
-		  <input
-			style="display:none"
-			type="file"
-			accept=".jpg, .jpeg, .png"
-			required
-			on:change={(e) => onFileSelected(e)}
-			bind:this={fileinput}
-		  />
-  
-		  <input
-			type="text"
-			placeholder="Enter Food Title..."
-			id="foodbox1"
-			name="food_title"
-			required
-			class="text-align-center text-3xl w-[60vw]"
-			style="color:white; background-color:#a79c91;border-radius:10px;"
-		  />
-  
-		  <br /><input
-			type="text"
-			placeholder="Enter Food Description..."
-			id="foodbox2"
-			name="food_description"
-			required
-			class="text-align-center text-3xl w-[60vw]"
-			style="color:white; background-color:#a79c91;border-radius:10px;"
-		  />
-		  <br />
-		  <input
-			type="number"
-			placeholder="Enter Food Price..."
-			id="foodbox3"
-			name="food_price"
-			required
-			step="0.01"
-			class="text-align-center text-3xl w-[60vw]"
-			style="color:white; background-color:#a79c91;border-radius:10px;"
-		  />
-		  <br />
-		  <select
-			id="dropOffLocation"
-			name="food_tag"
-			placeholder="Select Tag"
-			required
-			class="text-white text-align-center pb-5 pt-5 w-[60vw]"
-			style="background-color:#a79c91;border-radius:10px;"
-		  >
-			<option selected>Select Food Tag</option>
-			<option value="1">Featured</option>
-			<option value="2">Popular</option>
-			<option value="3">Helados</option>
-			<option value="4">Fast Food</option>
-			<option value="5">Bebidas</option>
-			<option value="6">On Delivery</option>
-			<option value="7">Done</option>
-			<option value="8">Favorites</option>
-		  </select> <br />
-  
-		  <button
-			class="button-large button button-fill rounded-xl w-[40vw]"
-			type="submit">
-			UPLOAD FOOD ITEM
-		  </button>
-		</form>
-	  </center>
-  </div>
-	  
-	  <div class='fixed bottom-0 w-full'>
-		  <button id="button1" class="my-8 w-[40vw] float-right mr-8 py-2 bg-blue-500 text-white text-sm font-bold tracking-wide rounded-full"
-		  onclick="document.getElementById('tabsbox').style.display = 'none'; document.getElementById('myfoods').style.display = 'none'; document.getElementById('foodform').style.display = 'block'; document.getElementById('button2').style.display = 'block'; document.getElementById('button1').style.display = 'none';">
-		  Upload Food</button>
-
-		  <button style="display:none;" id="button2" class="my-8 w-[40vw] float-right mr-8 py-2 bg-blue-700 text-white text-sm font-bold tracking-wide rounded-full"
-		onclick="document.getElementById('tabsbox').style.display = 'block'; document.getElementById('myfoods').style.display = 'block'; document.getElementById('foodform').style.display = 'none';  document.getElementById('button1').style.display = 'block'; document.getElementById('button2').style.display = 'none';">
-		  See My Foods</button>
+	
+			<br /><input
+				type="text"
+				placeholder="Enter Food Description..."
+				id="foodbox2"
+				name="food_description"
+				required
+				class="text-align-center text-3xl w-[60vw]"
+				style="color:white; background-color:#a79c91;border-radius:10px;"
+			/>
+			<br />
+			<input
+				type="number"
+				placeholder="Enter Food Price..."
+				id="foodbox3"
+				name="food_price"
+				required
+				step="0.01"
+				class="text-align-center text-3xl w-[60vw]"
+				style="color:white; background-color:#a79c91;border-radius:10px;"
+			/>
+			<br />
+			<select
+				id="dropOffLocation"
+				name="food_tag"
+				placeholder="Select Tag"
+				required
+				class="text-white text-align-center pb-5 pt-5 w-[60vw]"
+				style="background-color:#a79c91;border-radius:10px;"
+			>
+				<option selected>Select Food Tag</option>
+				<option value="1">Featured</option>
+				<option value="2">Popular</option>
+				<option value="3">Helados</option>
+				<option value="4">Fast Food</option>
+				<option value="5">Bebidas</option>
+				<option value="6">On Delivery</option>
+				<option value="7">Done</option>
+				<option value="8">Favorites</option>
+			</select> <br />
+	
+			<button
+				class="button-large button button-fill rounded-xl w-[40vw]"
+				type="submit">
+				UPLOAD FOOD ITEM
+			</button>
+			</form>
+		</center>
 	  </div>
-  
-	  
-  
 	</div>
-  
+	<div class='toolbar toolbar-bottom container footer-button padding'>
+		<button id="button1" class="rounded-xl my-8 w-[40vw] float-right mr-8 py-2 bg-blue-500 text-white text-sm font-bold tracking-wide rounded-full"
+		onclick="document.getElementById('tabsbox').style.display = 'none'; document.getElementById('myfoods').style.display = 'none'; document.getElementById('foodform').style.display = 'block'; document.getElementById('button2').style.display = 'block'; document.getElementById('button1').style.display = 'none';">
+		Upload Food</button>
+
+		<button style="display:none;" id="button2" class="my-8 w-[40vw] float-right mr-8 py-2 bg-blue-700 text-white text-sm font-bold tracking-wide rounded-full"
+	  onclick="document.getElementById('tabsbox').style.display = 'block'; document.getElementById('myfoods').style.display = 'block'; document.getElementById('foodform').style.display = 'none';  document.getElementById('button1').style.display = 'block'; document.getElementById('button2').style.display = 'none';">
+		See My Foods</button>
+	</div>
   
 </div>
   

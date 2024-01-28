@@ -124,6 +124,81 @@
         centered-slides={false}
         class="swiper swiper-init main-swiper mb-40 overlay-swiper1 demo-swiper-multiple demo-swiper-multiple-auto"
       >
+        <div class="swiper-slide">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-pizza/">
+            <div class="dz-media">
+              <img src="../assets/img/products/featured/pic1.png" alt=""/>
+            </div>
+            <div class="dz-info">
+              <h5 class="item-title title">Pizza Hut L Queso</h5>
+              <div class="dz-meta">
+                <ul>
+                  <li class="price"><sup>$</sup>500 <del>$899</del></li>
+                </ul>
+              </div>
+            </div></a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-tea">
+            <div class="dz-media">
+              <img src="../assets/img/products/featured/pic2.png" alt=""/>
+            </div>
+            <div class="dz-info">
+              <h5 class="item-title title">Indonesian Tea</h5>
+              <div class="dz-meta">
+                <ul>
+                  <li class="price">$150 <del>$304</del></li>
+                </ul>
+              </div>
+            </div></a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-kfc">
+            <div class="dz-media">
+              <img src="../assets/img/products/featured/pic3.png" alt=""/>
+            </div>
+            <div class="dz-info">
+              <h5 class="item-title title">KFC Combo Familia</h5>
+              <div class="dz-meta">
+                <ul>
+                  <li class="price"><sup>$</sup>750 <del>$1220</del></li>
+                </ul>
+              </div>
+            </div></a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-tylenol">
+            <div class="dz-media">
+              <img src="../assets/img/products/featured/pic4.png" alt=""/>
+            </div>
+            <div class="dz-info">
+              <h5 class="item-title title">Tylenol Ultra</h5>
+              <div class="dz-meta">
+                <ul>
+                  <li class="price">$25 <del>$54</del></li>
+                </ul>
+              </div>
+            </div></a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-bon">
+            <div class="dz-media">
+              <img src="../assets/img/products/featured/pic5.png" alt=""/>
+            </div>
+            <div class="dz-info">
+              <h5 class="item-title title">BON XGrande</h5>
+              <div class="dz-meta">
+                <ul>
+                  <li class="price"><sup>$</sup>275 <del>$499</del></li>
+                </ul>
+              </div>
+            </div></a>
+          </div>
+        </div>
         <!-- Display the favourite food items using loop -->
         {#each foodItems as foodItem}
           {#if foodItem.Food_Tag == FOOD_TAG_FEATURED}
@@ -403,13 +478,51 @@
       </div>
       <div class="list search-list mt-0 mb-20 searchbar-found item-list">
         <ul class="grid grid-cols-1 medium-grid-cols-2 grid-gap">
+          <li class="col-100 medium-50">
+						<div class="item-bx item-list">
+							<div class="dz-media">
+								<a href="/item-details-pizza/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
+							</div>
+							<div class="dz-info">
+								<div class="dz-head">
+									<h6 class="item-title"><a href="/item-details-pizza/">Burger King Villa Mella</a></h6>
+								</div>
+								<div class="dz-meta">
+									<ul>
+										<li class="price">-5%</li>
+										<li class="pts text-primary">50 Pts</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="col-100 medium-50">
+						<div class="item-bx item-list">
+							<div class="dz-media">
+								<a href="/item-details-pizza/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
+							</div>
+							<div class="dz-info">
+								<div class="dz-head">
+									<h6 class="item-title"><a href="/item-details-pizza/">Farmacia Popular Zona Colonial</a></h6>
+								</div>
+								<div class="dz-meta">
+									<ul>
+										<li class="price">-20%</li>
+										<li class="pts text-primary">50 Pts</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
           <!-- Display the popular food items using loop -->
           {#each foodItems as foodItem}
             {#if foodItem.Food_Tag == FOOD_TAG_POPULAR}
               <li>
                 <div class="item-bx item-list">
                   <div class="dz-media">
-                    <a href="/restaurant/"
+                    <a href="/item-details-pizza/"
                       ><img src={foodItem.Food_Image} alt="" /></a
                     >
                     <div class="rating"><i class="fa fa-star"></i> 3.8</div>
@@ -417,7 +530,7 @@
                   <div class="dz-info">
                     <div class="dz-head">
                       <h6 class="item-title">
-                        <a href="/restaurant/">{foodItem.Food_Title}</a>
+                        <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
                       </h6>
                     </div>
                     <div class="dz-meta">
