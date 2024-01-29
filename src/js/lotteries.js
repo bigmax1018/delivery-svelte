@@ -36,5 +36,16 @@ export const getDocuments = async (collectionId) => {
   }
 };
 
+export const getFoodItem = async (collectionId, documentId) => {
+  try {
+    return await databases.getDocument(APPWRITE_DATABASE_ID, collectionId, documentId);
+  } catch (error) {
+    console.error(
+      "Lotteries.js create error while getting documents from DB: ",
+      error
+    );
+  }
+};
+
 export const deleteList = (database_id, collection_id, data) =>
   databases.deleteDocument(database_id, collection_id, data);
