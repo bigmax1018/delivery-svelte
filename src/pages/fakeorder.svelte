@@ -9,6 +9,7 @@ let title = 'Fake Order';
 let businessLocation = '';
 let dropoffLocation = '';
 let orderStatus = '';
+let foodValue = '';
 let ongoingOrder = false;
 let orderCancelled = false;
 let orderCompleted = false;
@@ -17,6 +18,7 @@ let intervalId;
   const createFakeOrder = async () => {
     const fakeOrder = {
       id: uuidv4(), //Generate a GUID for the order
+      foodValue: foodValue,
       businessLocation: businessLocation,
       dropoffLocation: dropoffLocation,
     };
