@@ -14,9 +14,9 @@
   let orderStatus;
   let order;
 
-  // let unsubscribeFoodStore = foodStore.subscribe(value => {
-  //     foodValue = value;
-  // });
+  let unsubscribeFoodStore = foodStore.subscribe(value => {
+      foodValue = value;
+  });
 
   let unsubscribeBusinessLocationStore = businessLocationStore.subscribe(
     (value) => {
@@ -37,7 +37,7 @@
   $: if (businessLocation && dropoffLocation) {
     console.log("businessLocation:", businessLocation);
     console.log("dropoffLocation:", dropoffLocation);
-    order = orders.createFakeOrder(businessLocation, dropoffLocation);
+    order = orders.createFakeOrder(foodValue, businessLocation, dropoffLocation);
     orders.startOrderStatusUpdates();
   }
 

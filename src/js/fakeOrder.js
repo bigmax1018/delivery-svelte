@@ -49,9 +49,10 @@ const manageOrders = () => {
     }
   }
 
-  const createFakeOrder = async (businessLocation, dropoffLocation) => {
+  const createFakeOrder = async (foodValue, businessLocation, dropoffLocation) => {
     const fakeOrder = {
       id: uuidv4(), //Generate a GUID for the order
+      foodValue: foodValue,
       businessLocation: businessLocation,
       dropoffLocation: dropoffLocation,
     };
