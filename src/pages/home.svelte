@@ -9,12 +9,22 @@
     FOOD_TAG_FAVOURITES,
     FOOD_TAG_FEATURED,
   } from "../js/constants.js";
+    import { id } from "framework7/shared/utils.js";
+
+  export let f7router;
 
   let foodItems = [];
 
   onMount(async () => {
     foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
   });
+
+const on_detail = (e) => {
+  window.location.href = "/item-detail/" + e.currentTarget.dataset.id;
+};
+
+
+
 </script>
 
 <div class="page page-home">
@@ -205,13 +215,13 @@
             <swiper-slide style="width:auto" class="pl-4">
               <div class="card-overlay style-1 bg-primary">
                 <div class="dz-media">
-                  <a href="/item-details-pizza/">
+                  <a on:click={on_detail} data-id={foodItem.$id}>
                     <img src={foodItem.Food_Image} alt="No Img" />
                   </a>
                 </div>
                 <div class="dz-info">
                   <h5 class="item-title title">
-                    <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+                    <a on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
                   </h5>
                   <div class="dz-meta">
                     <ul>

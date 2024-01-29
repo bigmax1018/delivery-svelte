@@ -39,6 +39,7 @@ import TrackingPage from '../pages/tracking.svelte';
 import TrackingDonePage from '../pages/tracking-done.svelte';
 import WishlistPage from '../pages/wishlist.svelte';
 import WriteReviewsPage from '../pages/write-reviews.svelte';
+import ItemDetails from '../pages/item-detail.svelte';
 
 import SigninPage from '../pages/signin.svelte';
 import SignUpPage from '../pages/signup.svelte';
@@ -219,6 +220,10 @@ var routes = [
   {
     path: '/signup/',
     component: SignUpPage,
+  },
+  {
+    path: '/item-detail/:id',
+    component: ItemDetails,
   },
   {
     path: '(.*)',
