@@ -57,7 +57,7 @@
 				
 			<p class="mt-0 mb-30">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 			
-			<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill" on:click={placeOrder}>Place order <span>$17.4</span></a>
+			<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill" on:click={placeOrder}>Place order <span>{foodItem.Food_Price}</span></a>
 			
 		</div>
 		
