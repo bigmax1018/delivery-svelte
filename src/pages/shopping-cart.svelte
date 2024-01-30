@@ -91,9 +91,6 @@
 
 	  // Clear input tags after submit
 	};
-	const on_detail = (e) => {
-		window.location.href = "/item-detail/" + e.currentTarget.dataset.id;
-	};
   </script>
   
   <div class="page">
@@ -225,12 +222,12 @@
 					  <div class="item-content swipeout-content">
 						<div class="item-inner">
 						  <div class="item-media">
-							<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
+							<a href="/item-detail/{foodItem.$id}"><img src={foodItem.Food_Image} alt="" /></a>
 						  </div>
 						  <div class="item-info">
 							<div class="item-head">
 							  <h6 class="item-title">
-								<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
+								<a href="/item-detail/{foodItem.$id}">{foodItem.Food_Title}</a>
 							  </h6>
 							</div>
 							<div class="item-foot">
@@ -358,12 +355,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-								<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
+								<a href="/item-detail/{foodItem.$id}"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-									<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
+									<a href="/item-detail/{foodItem.$id}">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -463,12 +460,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-								<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
+								<a href="/item-detail/{foodItem.$id}"><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-									<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
+									<a href="/item-detail/{foodItem.$id}">{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
