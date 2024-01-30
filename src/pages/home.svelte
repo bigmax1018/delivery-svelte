@@ -215,13 +215,13 @@ const on_detail = (e) => {
             <swiper-slide style="width:auto" class="pl-4">
               <div class="card-overlay style-1 bg-primary">
                 <div class="dz-media">
-                  <a on:click={on_detail} data-id={foodItem.$id}>
+                  <a href="#" on:click={on_detail} data-id={foodItem.$id}>
                     <img src={foodItem.Food_Image} alt="No Img" />
                   </a>
                 </div>
                 <div class="dz-info">
                   <h5 class="item-title title">
-                    <a on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
+                    <a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
                   </h5>
                   <div class="dz-meta">
                     <ul>
@@ -532,15 +532,15 @@ const on_detail = (e) => {
               <li>
                 <div class="item-bx item-list">
                   <div class="dz-media">
-                    <a href="/item-details-pizza/"
-                      ><img src={foodItem.Food_Image} alt="" /></a
-                    >
+                    <a href="#" on:click={on_detail} data-id={foodItem.$id}>
+                      <img src={foodItem.Food_Image} alt="" />
+                    </a>
                     <div class="rating"><i class="fa fa-star"></i> 3.8</div>
                   </div>
                   <div class="dz-info">
                     <div class="dz-head">
                       <h6 class="item-title">
-                        <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+                        <a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
                       </h6>
                     </div>
                     <div class="dz-meta">

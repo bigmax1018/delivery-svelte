@@ -88,8 +88,11 @@
 		"https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png";
 	  const form = document.getElementById("foodInfoForm");
 	  form.reset();
-  
+
 	  // Clear input tags after submit
+	};
+	const on_detail = (e) => {
+		window.location.href = "/item-detail/" + e.currentTarget.dataset.id;
 	};
   </script>
   
@@ -222,12 +225,12 @@
 					  <div class="item-content swipeout-content">
 						<div class="item-inner">
 						  <div class="item-media">
-							<a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
+							<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
 						  </div>
 						  <div class="item-info">
 							<div class="item-head">
 							  <h6 class="item-title">
-								<a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+								<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
 							  </h6>
 							</div>
 							<div class="item-foot">
@@ -235,7 +238,7 @@
 								<li class="item-price">${foodItem.Food_Price}</li>
 								<li class="">2x</li>
 								<li class="text-primary item-total">
-								  {foodItem.Food_Price_Old}
+								  ${foodItem.Food_Price_Old}
 								</li>
 							  </ul>
 							</div>
@@ -355,12 +358,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
+								<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+									<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -368,7 +371,7 @@
 								  <li class="item-price">${foodItem.Food_Price}</li>
 								  <li class="">2x</li>
 								  <li class="text-primary item-total">
-									{foodItem.Food_Price_Old}
+									${foodItem.Food_Price_Old}
 								  </li>
 								</ul>
 							  </div>
@@ -460,12 +463,12 @@
 						<div class="item-content swipeout-content">
 						  <div class="item-inner">
 							<div class="item-media">
-							  <a href="/item-details-pizza/"><img src={foodItem.Food_Image} alt="" /></a>
+								<a href="#" on:click={on_detail} data-id={foodItem.$id}><img src={foodItem.Food_Image} alt="" /></a>
 							</div>
 							<div class="item-info">
 							  <div class="item-head">
 								<h6 class="item-title">
-								  <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+									<a href="#" on:click={on_detail} data-id={foodItem.$id}>{foodItem.Food_Title}</a>
 								</h6>
 							  </div>
 							  <div class="item-foot">
@@ -473,7 +476,7 @@
 								  <li class="item-price">${foodItem.Food_Price}</li>
 								  <li class="">2x</li>
 								  <li class="text-primary item-total">
-									{foodItem.Food_Price_Old}
+									${foodItem.Food_Price_Old}
 								  </li>
 								</ul>
 							  </div>
