@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	<div class="toolbar toolbar-bottom footer-button padding container">
-		<a href="/tracking/" on:click={setDropoffLocationStore} class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
+		<a href="/tracking/" on:click={setDropoffLocationStore} class="button-large button rounded-lg btn-icon button-fill">SUBMIT ORDER <i class="fas fa-caret-right"></i></a>
 	</div>
 </div>
 
@@ -115,13 +115,10 @@
 	});
 
 	function setDropoffLocationStore() {
-		dropoffLocationStore.set(dropoffLocation);
-	}
+		dropoffLocationStore.set(dropoffLocation);	}
 </script>
 
 <style>
 	.item-content::before,
-	.item-content::after {
-		content: none !important;
-	}
+	.item-content::after {	content: none !important;	}
 </style>
