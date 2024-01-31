@@ -2,6 +2,7 @@ import FirstPage from '../pages/first.svelte';
 import WelcomePage from '../pages/welcome.svelte';
 
 import HomePage from '../pages/home.svelte';
+import StoreHomePage from '../pages/home-store.svelte';
 
 import NotFoundPage from '../pages/404.svelte';
 import AboutPage from '../pages/about.svelte';
@@ -30,7 +31,7 @@ import PageTransitionsEffectPage from '../pages/page-transitions-effect.svelte';
 import PageTransitionsPage from '../pages/page-transitions.svelte';
 import ProductsPage from '../pages/products.svelte';
 import ProfilePage from '../pages/profile.svelte';
-import RestaurantPage from '../pages/restaurant.svelte';
+import RestaurantPage from '../pages/burgerking.svelte';
 import RewardsPage from '../pages/rewards.svelte';
 import ShoppingCartPage from '../pages/shopping-cart.svelte';
 import StoreLocationsPage from '../pages/store-locations.svelte';
@@ -54,6 +55,10 @@ var routes = [
     component: HomePage,
   },
   {
+    path: '/home-store/',
+    component: StoreHomePage,
+  },
+  {
     path: '/blog/',
     component: BlogPage,
   },
@@ -66,7 +71,7 @@ var routes = [
     component: FakeOrderPage,
   },
   {
-    path: '/restaurant/',
+    path: '/burgerking/',
     component: RestaurantPage,
   },
   {
