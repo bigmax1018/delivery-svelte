@@ -56,11 +56,15 @@
 				<br><input type="text" placeholder="Enter Password..." id="mypassbox" bind:value={password}
 					class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 				<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => login_or_register(email, password)} style="background-color:#007AFF; color:white">
-					<img src="/assets/img/svg/logout.svg" alt=""> <span>Login</span></a><br>
+					<img src="/assets/img/svg/logout.svg" alt=""> <span>Submit</span></a><br>
 
-					<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => register(email, password)} style="background-color:#007AFF; color:white">
-						<img src="/assets/img/svg/logout.svg" alt=""> <span>Register</span></a><br></div>
+					<!--a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => register(email, password)} style="background-color:#007AFF; color:white">
+						<img src="/assets/img/svg/logout.svg" alt=""> <span>Register</span></a><br-->
+						<a style="display:flex; align-items: center; justify-content: center;" class="button-large button button-social rounded-xl button-outline google mt-48 mb-40" on:click={google_login}>
+							<img src="/assets/img/social/google-mail.png" alt="" style="vertical-align: middle;">
+							<span>Or Google Login</span></a>
 
+				</div>
 			</div>
 		</div>
 	</div>
