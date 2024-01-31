@@ -35,22 +35,32 @@
 					</h2></div></div>
 			</div>
 			<div class="clearfix pb-4">
-				<a id="hidelogbtn"  on:click={() => {document.getElementById('inputboxes').style.display = 'block'; document.getElementById('hidelogbtn').style.display = 'none'; document.getElementById('hidetag').style.display = 'none';}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/inbox.png" alt=""> <span>Login With Email</span></a>
-				
+
+				<a id="firstbuttons1" on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex';}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/user.png" alt=""> 
+					<span>Customer Login</span></a>
+
+					<a id="firstbuttons2"  on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex';}} class="button-large button button-social rounded-xl mb-10" style="border:1px solid #007AFF;"><img src="/assets/img/social/inbox-blue.png" alt="">
+						<span>Store Owner Login</span></a>
+
+						<a id="googlebtn" style="display:none; align-items: center; justify-content: center;" class="button-large button button-social rounded-xl button-outline google mt-48 mb-40" on:click={google_login}>
+							<img src="/assets/img/social/google-mail.png" alt="" style="vertical-align: middle;">
+							<span>Login with Google</span></a>
+							
+						<a id="hidelogbtn" style="display: none; align-items: center; justify-content: center;" on:click={() => {document.getElementById('inputboxes').style.display = 'block'; document.getElementById('googlebtn').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'none'; document.getElementById('hidetag').style.display = 'none';}} class="button-large button button-social rounded-xl button-fill mb-40">
+							<img src="/assets/img/social/inbox.png" alt="">
+							<span>Login With Email</span></a>
+
 				<div id="inputboxes" style="display:none;"><center>
 					<input type="text" placeholder="Enter Your Email Address..." id="myemailbox" bind:value={email}
 					class="text-align-center text-3xl w-[70vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 				<br><input type="text" placeholder="Enter Password..." id="mypassbox" bind:value={password}
 					class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
-				<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => login_or_register(email, password)} style="background-color:green; color:white">
+				<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => login_or_register(email, password)} style="background-color:#007AFF; color:white">
 					<img src="/assets/img/svg/logout.svg" alt=""> <span>Login</span></a><br>
 
-					<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => register(email, password)} style="background-color:green; color:white">
+					<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => register(email, password)} style="background-color:#007AFF; color:white">
 						<img src="/assets/img/svg/logout.svg" alt=""> <span>Register</span></a><br></div>
-					
-				<a class="button-large button button-social rounded-xl button-outline google mt-15" on:click={google_login}><img src="/assets/img/social/google-mail.png" alt=""> <span>Login with Google</span></a>
-				<a class="button-large button button-social rounded-xl button-fill facebook mt-15" on:click={facebook_login}><img src="/assets/img/social/facebook.png" alt=""> <span>Login with facebook</span></a>
-				<a href="/home/" class="button-large button rounded-xl button-fill color-red mt-15"><span>HOME NAVIG8</span></a>
+
 			</div>
 		</div>
 	</div>
@@ -116,16 +126,12 @@
 </script>
 
 <style>
-    #myemailbox::placeholder {
-        color: white;
-    }
-    #mypassbox::placeholder {
-        color: white;
-    }
+    #myemailbox::placeholder {	color: white;	}
+    #mypassbox::placeholder {	color: white;	}
 
 	
 	.item-content::before,
 	.item-content::after {
-		content: none !important;
-	}
+		content: none !important;	}
+
 </style>

@@ -1,11 +1,7 @@
 <script>
   import { orders, orderStatusStore } from "./../js/fakeOrder.js";
   import { Link } from "framework7-svelte";
-  import {
-    foodStore,
-    businessLocationStore,
-    dropoffLocationStore,
-  } from "../js/store.js";
+  import { foodStore,  businessLocationStore,  dropoffLocationStore, } from "../js/store.js";
   import { onDestroy, onMount } from "svelte";
 
   let foodValue;
@@ -15,42 +11,42 @@
   let order;
 
   let unsubscribeFoodStore = foodStore.subscribe(value => {
-      foodValue = value;
-  });
+      foodValue = value;  });
+
 
   let unsubscribeBusinessLocationStore = businessLocationStore.subscribe(
     (value) => {
-      businessLocation = value;
-    }
-  );
+      businessLocation = value; } );
+
 
   let unsubscribeDropoffLocationStore = dropoffLocationStore.subscribe(
     (value) => {
-      dropoffLocation = value;
-    }
-  );
+      dropoffLocation = value;  } );
+
 
   let unsubscribeOrderStatusStore = orderStatusStore.subscribe((value) => {
-    orderStatus = value;
-  });
+    orderStatus = value;  });
 
-  $: if (businessLocation && dropoffLocation) {
+
+  $: if (businessLocation && dropoffLocation && foodValue) {
+    console.log("Food Variable:", foodValue);
     console.log("businessLocation:", businessLocation);
     console.log("dropoffLocation:", dropoffLocation);
     order = orders.createFakeOrder(foodValue, businessLocation, dropoffLocation);
-    orders.startOrderStatusUpdates();
-  }
+    orders.startOrderStatusUpdates();   }
+
 
   onMount(async () => {
     console.clear();
-    //orderStatus = await orders.getOrderStatus();
+    //orderStatus = await orders.getOrderStatus(); 
   });
+
 
   onDestroy(() => {
     unsubscribeBusinessLocationStore();
     unsubscribeDropoffLocationStore();
-    unsubscribeOrderStatusStore();
-  });
+    unsubscribeOrderStatusStore();    });
+
 </script>
 
 <div class="page location-tracking">
@@ -93,12 +89,11 @@
   <div class="page-content pt-0">
     <!-- Map -->
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17548787.66139891!2d79.32638741782908!3d25.447855407763893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1619499827514!5m2!1sen!2sin"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
+      src="https://www.google.com/maps/embed/v1/place?q=Santo+Domingo,+Dominican+Republic&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+      allowfullscreen="" loading="lazy" title="map"></iframe>
 
     <div class="bottom-wraper">
+      <img src="../assets/dronegif.gif" alt="drone" class="w-[60%] mb-48" />
       <div class="container track-content">
         <div class="map-dir">
           <p class="ma-0">Estimated Time</p>
