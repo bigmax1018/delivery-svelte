@@ -3,21 +3,16 @@
   import { onMount } from "svelte";
   import { user } from "../js/user.js";
   import { getDocuments } from "../js/lotteries.js";
-  import {
-    APPWRITE_FOOD_COLLECTION_ID,
-    FOOD_TAG_POPULAR,
-    FOOD_TAG_FAVOURITES,
-    FOOD_TAG_FEATURED,
-  } from "../js/constants.js";
-    import { id } from "framework7/shared/utils.js";
+  import { APPWRITE_FOOD_COLLECTION_ID, FOOD_TAG_POPULAR, FOOD_TAG_FAVOURITES,  FOOD_TAG_FEATURED, } from "../js/constants.js";
+  import { id } from "framework7/shared/utils.js";
 
   export let f7router;
 
   let foodItems = [];
 
   onMount(async () => {
-    foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
-  });
+    foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;  });
+
 </script>
 
 <div class="page page-home">
@@ -37,7 +32,7 @@
             {/if}
           </div>
           <div class="media">
-            <a href="#" class="link panel-open pt-8" data-panel="left">
+            <a href="" class="link panel-open pt-8" data-panel="left">
               <svg
                 width="24"
                 height="24"
@@ -125,13 +120,13 @@
         space-between={20}
         slides-per-view={"auto"}
         centered-slides={false}
-        class="swiper swiper-init main-swiper mb-40 overlay-swiper1 demo-swiper-multiple demo-swiper-multiple-auto"
-      >
+        class="swiper swiper-init main-swiper mb-40 overlay-swiper1 demo-swiper-multiple demo-swiper-multiple-auto">
         <div class="swiper-slide">
           <div class="card-overlay style-1 bg-primary"><a href="/item-details-pizza/">
             <div class="dz-media">
-              <img src="../assets/img/products/featured/pic1.png" alt=""/>
+              <img src="./assets/img/products/featured/pic1.png" alt=""/>
             </div>
+            <a href="/shopping-cart/">
             <div class="dz-info">
               <h5 class="item-title title">Pizza Hut L Queso</h5>
               <div class="dz-meta">
@@ -146,7 +141,7 @@
           <div class="card-overlay style-1 bg-primary">
             <a href="/item-details-tea/">
               <div class="dz-media">
-                <img src="../assets/img/products/featured/pic2.png" alt=""/>
+                <img src="./assets/img/products/featured/pic2.png" alt=""/>
               </div>
               <div class="dz-info">
                 <h5 class="item-title title">Indonesian Tea</h5>
@@ -162,7 +157,7 @@
         <div class="swiper-slide">
           <div class="card-overlay style-1 bg-primary"><a href="/item-details-kfc/">
             <div class="dz-media">
-              <img src="../assets/img/products/featured/pic3.png" alt=""/>
+              <img src="./assets/img/products/featured/pic3.png" alt=""/>
             </div>
             <div class="dz-info">
               <h5 class="item-title title">KFC Combo Familia</h5>
@@ -177,7 +172,7 @@
         <div class="swiper-slide">
           <div class="card-overlay style-1 bg-primary"><a href="/item-details-pills/">
             <div class="dz-media">
-              <img src="../assets/img/products/featured/pic4.png" alt=""/>
+              <img src="./assets/img/products/featured/pic4.png" alt=""/>
             </div>
             <div class="dz-info">
               <h5 class="item-title title">Tylenol Ultra</h5>
@@ -192,7 +187,7 @@
         <div class="swiper-slide">
           <div class="card-overlay style-1 bg-primary"><a href="/item-details-bon/">
             <div class="dz-media">
-              <img src="../assets/img/products/featured/pic5.png" alt=""/>
+              <img src="./assets/img/products/featured/pic5.png" alt=""/>
             </div>
             <div class="dz-info">
               <h5 class="item-title title">BON XGrande</h5>
@@ -486,7 +481,7 @@
           <li class="col-100 medium-50">
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details-pizza/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<a href="/item-details-pizza/"><img src="./assets/img/products/product1a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
@@ -505,7 +500,7 @@
 					<li class="col-100 medium-50">
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details-pizza/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<a href="/item-details-pizza/"><img src="./assets/img/products/product2a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
