@@ -223,7 +223,7 @@
               </li>
               <li>
                 <Link
-                  to="/shopping-cart/"
+                  href="/shopping-cart/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -251,8 +251,9 @@
                 </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/wishlist/"
+                  panelClose
                   class="item-link"
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
                 >
@@ -267,7 +268,7 @@
                     />
                   </svg>
                   <span>Favorites D</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
