@@ -201,7 +201,7 @@
             <ul>
               <li>
                 <Link
-                  to="/home/"
+                  href="/home/"
                   class="item-link item-selected"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -222,8 +222,8 @@
                 </Link>
               </li>
               <li>
-                <a
-                  href="/shopping-cart/"
+                <Link
+                  to="/shopping-cart/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -248,7 +248,7 @@
                     />
                   </svg>
                   <span>{menuItem}</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -271,7 +271,7 @@
               </li>
               <li>
                 <Link
-                  to="/store-locations/"
+                  href="/store-locations/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -297,7 +297,7 @@
               </li>
               <li>
                 <Link
-                  to="/tracking/"
+                  href="/tracking/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -318,7 +318,7 @@
               </li>
               <li>
                 <Link
-                  to="/profile/"
+                  href="/profile/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -340,7 +340,7 @@
               </li>
               <li>
                 <Link
-                  to="/messages-list/"
+                  href="/messages-list/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
@@ -363,7 +363,7 @@
               </li>
               <li>
                 <Link
-                  to="/color-themes/"
+                  href="/color-themes/"
                   class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
