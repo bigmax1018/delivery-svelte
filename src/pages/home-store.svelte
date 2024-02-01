@@ -11,10 +11,10 @@
   import Alpine from "alpinejs";
   import persist from "@alpinejs/persist";
   import flatpickr from "flatpickr";
-  import chart01 from "../components/chart-01";
-  import chart02 from "../components/chart-02";
-  import chart03 from "../components/chart-03";
-  import chart04 from "../components/chart-04";
+  import chart01 from "./components/chart-01";
+  import chart02 from "./components/chart-02";
+  import chart03 from "./components/chart-03";
+  import chart04 from "./components/chart-04";
 
   export let f7router;
 
@@ -218,7 +218,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-03.png" alt="User" />
+                  <img src="./assets/img/user/user-03.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"
                   ></span>
@@ -249,7 +249,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-04.png" alt="User" />
+                  <img src="./assets/img/user/user-04.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"
                   ></span>
@@ -272,7 +272,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-05.png" alt="User" />
+                  <img src="./assets/img/user/user-05.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"
                   ></span>
@@ -295,7 +295,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-01.png" alt="User" />
+                  <img src="./assets/img/user/user-01.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"
                   ></span>
@@ -326,7 +326,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-02.png" alt="User" />
+                  <img src="./assets/img/user/user-02.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-7"
                   ></span>
@@ -349,7 +349,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 class="flex items-center gap-5 px-7.5 py-3 hover:bg-gray-3 dark:hover:bg-meta-4"
               >
                 <div class="relative h-14 w-14 rounded-full">
-                  <img src="../assets/img/user/user-05.png" alt="User" />
+                  <img src="./assets/img/user/user-05.png" alt="User" />
                   <span
                     class="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"
                   ></span>
@@ -498,7 +498,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 >
                   <div class="flex items-center gap-3 p-2.5 xl:p-5">
                     <div class="flex-shrink-0">
-                      <img src="../assets/img/products/featured/pic1.png" class="" style="width:48px; height:48px;" alt="Brand" />
+                      <img src="./assets/img/products/featured/pic1.png" class="" style="width:48px; height:48px;" alt="Brand" />
                     </div>
                     <p class="hidden font-medium text-black dark:text-white sm:block">
                       Pizza XL Queso
@@ -519,7 +519,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 >
                   <div class="flex items-center gap-3 p-2.5 xl:p-5">
                     <div class="flex-shrink-0">
-                      <img src="../assets/img/products/featured/pic2.png" class="" style="width:48px; height:48px;" alt="Brand" />
+                      <img src="./assets/img/products/featured/pic2.png" class="" style="width:48px; height:48px;" alt="Brand" />
                     </div>
                     <p class="hidden font-medium text-black dark:text-white sm:block">
                       Ice Tea
@@ -540,7 +540,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 >
                   <div class="flex items-center gap-3 p-2.5 xl:p-5">
                     <div class="flex-shrink-0">
-                      <img src="../assets/img/products/product1a.jpg" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
+                      <img src="./assets/img/products/product1a.jpg" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
                     </div>
                     <p class="hidden font-medium text-black dark:text-white sm:block">
                       Hamburguesa Bacon
@@ -561,7 +561,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 >
                   <div class="flex items-center gap-3 p-2.5 xl:p-5">
                     <div class="flex-shrink-0">
-                      <img src="../assets/img/products/featured/pic3.png" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
+                      <img src="./assets/img/products/featured/pic3.png" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
                     </div>
                     <p class="hidden font-medium text-black dark:text-white sm:block">
                       Pollo Nuggets
@@ -580,7 +580,7 @@ $: localStorage.setItem('darkMode', JSON.stringify(darkMode));
                 <div class="grid grid-cols-3 sm:grid-cols-5">
                   <div class="flex items-center gap-3 p-2.5 xl:p-5">
                     <div class="flex-shrink-0">
-                      <img src="../assets/img/products/featured/pic5.png" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
+                      <img src="./assets/img/products/featured/pic5.png" class="" style="width:48px; height:48px; border-radius:100%" alt="Brand" />
                     </div>
                     <p class="hidden font-medium text-black dark:text-white sm:block">
                       Helados BON
