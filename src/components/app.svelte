@@ -53,7 +53,7 @@
   async function logout() {
     try {
       await account.deleteSession("current");
-      f7router.navigate("/first/");
+      window.location.href = "/first";
     } catch (error) {
       console.error("Failed to log out:", error);
     }
@@ -390,6 +390,7 @@
               </li>
               <li>
                 <Link
+                  onClick={logout}
                   class="item-link logout-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
