@@ -36,19 +36,23 @@
 			</div>
 			<div class="clearfix pb-4">
 
-				<a id="firstbuttons1" on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex';}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/user.png" alt=""> 
-					<span>Customer Login</span></a>
+				<a id="firstbuttons1" on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("customer"); currentMenuItem.set("My Order");}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/user.png" alt=""> 
+					<span>Customer Login</span>
+				</a>
 
-					<a id="firstbuttons2"  on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex';}} class="button-large button button-social rounded-xl mb-10" style="border:1px solid #007AFF;"><img src="/assets/img/social/inbox-blue.png" alt="">
-						<span>Store Owner Login</span></a>
+				<a id="firstbuttons2"  on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("owner"); currentMenuItem.set("My Store");}} class="button-large button button-social rounded-xl mb-10" style="border:1px solid #007AFF;"><img src="/assets/img/social/inbox-blue.png" alt="">
+					<span>Store Owner Login</span>
+				</a>
 
-						<a id="googlebtn" style="display:none; align-items: center; justify-content: center;" class="button-large button button-social rounded-xl button-outline google mt-48 mb-40" on:click={google_login}>
-							<img src="/assets/img/social/google-mail.png" alt="" style="vertical-align: middle;">
-							<span>Login with Google</span></a>
+				<a id="googlebtn" style="display:none; align-items: center; justify-content: center;" class="button-large button button-social rounded-xl button-outline google mt-48 mb-40" on:click={google_login}>
+					<img src="/assets/img/social/google-mail.png" alt="" style="vertical-align: middle;">
+					<span>Login with Google</span>
+				</a>
 							
-						<a id="hidelogbtn" style="display: none; align-items: center; justify-content: center;" on:click={() => {document.getElementById('inputboxes').style.display = 'block'; document.getElementById('googlebtn').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'none'; document.getElementById('hidetag').style.display = 'none';}} class="button-large button button-social rounded-xl button-fill mb-40">
-							<img src="/assets/img/social/inbox.png" alt="">
-							<span>Login With Email</span></a>
+				<a id="hidelogbtn" style="display: none; align-items: center; justify-content: center;" on:click={() => {document.getElementById('inputboxes').style.display = 'block'; document.getElementById('googlebtn').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'none'; document.getElementById('hidetag').style.display = 'none';}} class="button-large button button-social rounded-xl button-fill mb-40">
+					<img src="/assets/img/social/inbox.png" alt="">
+					<span>Login With Email</span>
+				</a>
 
 				<div id="inputboxes" style="display:none;"><center>
 					<input type="text" placeholder="Enter Your Email Address..." id="myemailbox" bind:value={email}
@@ -76,6 +80,8 @@
 	import { ID } from 'appwrite';
 	import { f7 } from 'framework7-svelte';
 
+	import { user_name, user_email, account_type, currentMenuItem } from "../js/store";
+
 	export let f7router;
 
 	let store = writable(null);
@@ -94,13 +100,15 @@
 	const login = async (email, password) => {
 		const promise = await account.createEmailSession(email, password);
 		await init();
+		user_email.set(email);
+		user_name.set(email.split('@')[0]);
 		f7router.navigate('/home/');    }
 
 
 	const register = async (email, password) => {
-		console.log('regist');
-		await account.create(ID.unique(), email, password);
-		await login(email, password);  }
+		const uname = email.split('@')[0];
+		const promise = await account.create(ID.unique(), email, password, uname);
+		await login(email, password)   }
 
 
 	const login_or_register = async (email, password) => {

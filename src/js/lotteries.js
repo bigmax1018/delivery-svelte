@@ -3,7 +3,7 @@ import {
   APPWRITE_PROJECT,
   APPWRITE_ENDPOINT,
 } from "./constants";
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID, Query } from "appwrite";
 
 const client = new Client();
 client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);
@@ -46,6 +46,18 @@ export const getFoodItem = async (collectionId, documentId) => {
     );
   }
 };
+
+export const getUser = async (collectionId, documentId) => {
+  try {
+    return await databases.listDocuments(APPWRITE_DATABASE_ID, collectionId, [Query.equal("user_id", documentId)]);
+  } catch (error) {
+    console.error(
+      "Lotteries.js create error while getting documents from DB: ",
+      error
+    );
+  }
+};
+
 
 export const deleteList = (database_id, collection_id, data) =>
   databases.deleteDocument(database_id, collection_id, data);

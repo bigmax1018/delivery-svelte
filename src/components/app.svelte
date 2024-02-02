@@ -63,7 +63,7 @@
     f7ready(() => {});
   });
 
-  let menuItem = "My Order";
+  let menuItem;
   currentMenuItem.subscribe(value => menuItem = value);
 </script>
 

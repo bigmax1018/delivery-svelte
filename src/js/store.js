@@ -11,9 +11,11 @@ import { Client, Databases, ID } from "appwrite";
 export let dropoffStore = writable("");
 export const businessLocationStore = writable("");
 export const dropoffLocationStore = writable("");
-export const currentMenuItem = writable("My Order");
+export const currentMenuItem = writable("");
 export let foodStore = writable("");
-export const account_type = writable("customer");
+export const account_type = writable("");
+export const user_name = writable("");
+export const user_email = writable("");
 
 const client = new Client();
 client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);

@@ -9,6 +9,7 @@ export const APPWRITE_DATABASE_ID = "65869eefc6dd2e5c0917";
 export const APPWRITE_FOOD_COLLECTION_ID = "65a8b3e2ac8601166b5e";
 export const APPWRITE_FOOD_STORAGE_ID = "65869debdfc84bdec4a1";
 export const APPWRITE_ORDER_COLLECTION_ID = "65b4e4a50c28409ec4c8";
+export const APPWRITE_OWNER_USER_COLLECTION_ID = "65bd0bc74999b6e54c81";
 // export const APPWRITE_APIKEY = "AdminAPI";
 
 
