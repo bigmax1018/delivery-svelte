@@ -202,6 +202,7 @@
           </a>
           <div class="nav-bar list menu-list dz-list">
             <ul>
+              {#if user_type == "customer"}
               <li>
                 <Link
                   href="/home/"
@@ -224,11 +225,11 @@
                   <span>Home</span>
                 </Link>
               </li>
-              {#if user_type == "owner"}
+              {:else ifuser_type == "owner"}
               <li>
                 <Link
                   href="/home-store/"
-                  class="item-link"
+                  class="item-link item-selected"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
                 >
