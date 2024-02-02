@@ -13,6 +13,7 @@ export const businessLocationStore = writable("");
 export const dropoffLocationStore = writable("");
 export const currentMenuItem = writable("My Order");
 export let foodStore = writable("");
+export const account_type = writable("customer");
 
 const client = new Client();
 client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);

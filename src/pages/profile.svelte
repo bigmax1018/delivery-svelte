@@ -1,13 +1,16 @@
 <script>
   import { f7, Link, Button } from "framework7-svelte";
   import { user } from "../js/user";
-  import { currentMenuItem } from "../js/store";
+  import { currentMenuItem, account_type } from "../js/store";
 
   let upgradeNotification;
 
+  let user_type;
+  account_type.subscribe(value => user_type = value);
+  console.log(user_type);
   const upgradeUserRole = () => {
     currentMenuItem.set("My Store");
-
+    account_type.set("owner");
     //create notification
     upgradeNotification = f7.notification.create({
       icon: '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>',
@@ -239,9 +242,12 @@
         </swiper-container>
 
         <div style="width: 80%; margin: auto; margin-top: 50px">
-          <Button large round fill onClick={upgradeUserRole}
-            >Upgrade to Store Owner</Button
-          >
+          {#if user_type == "customer"}
+            <Button large round fill onClick={upgradeUserRole}>
+              Upgrade to Store Owner
+            </Button>
+          {/if}
+          
         </div>
       </div>
     </div>
