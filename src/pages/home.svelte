@@ -28,6 +28,7 @@
     owner_user = await getUser(APPWRITE_OWNER_USER_COLLECTION_ID, $user.$id);
     if(owner_user.total > 0){
       account_type.set("owner"); currentMenuItem.set("My Store");
+      f7router.navigate('/home/');
     }else {
       account_type.set("customer"); currentMenuItem.set("My Order");
     }
