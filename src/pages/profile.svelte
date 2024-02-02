@@ -1,13 +1,17 @@
 <script>
   import { f7, Link, Button } from "framework7-svelte";
   import { user } from "../js/user";
-  import { currentMenuItem, account_type } from "../js/store";
+  import { user_name, user_email, account_type, currentMenuItem } from "../js/store";
+
+  let uname = '';
+  let uemail = '';
+  user_name.subscribe(value => uname = value);
+  user_email.subscribe(value => uemail = value);
 
   let upgradeNotification;
 
   let user_type;
   account_type.subscribe(value => user_type = value);
-  console.log(user_type);
   const upgradeUserRole = () => {
     currentMenuItem.set("My Store");
     account_type.set("owner");
@@ -71,10 +75,12 @@
           </div>
           <div class="dz-content">
             {#if $user && $user.name}
-              <h2 class="name">{$user.name}</h2>
+            <h2 class="title">{$user.name}</h2>
             {:else if $user && $user.email}
-              <h2 class="name">{$user.email}</h2>
-            {/if}
+              <h2 class="title">{$user.email}</h2>
+            {:else}
+              <h2 class="title">{uname}</h2>
+            {/if} 
             <p class="text-primary">London, England</p>
           </div>
         </div>
