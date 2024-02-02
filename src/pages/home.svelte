@@ -20,6 +20,8 @@
   user_name.subscribe(value => uname = value);
   user_email.subscribe(value => uemail = value);
 
+  
+
   let foodItems = [];
   let owner_user;
 
