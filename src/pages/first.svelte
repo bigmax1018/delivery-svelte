@@ -92,23 +92,22 @@
 
 
 	const login = async (email, password) => {
-		const promise = account.createEmailSession(email, password);
-		init();
-		promise.then(function (response) {
-			f7router.navigate('/home/');     });   }
+		const promise = await account.createEmailSession(email, password);
+		await init();
+		f7router.navigate('/home/');    }
 
 
-	const register = (email, password) => {
-		const promise = account.create(ID.unique(), email, password);
-		init();
-		promise.then(function (response) {
-			f7router.navigate('/home/');    });  }
+	const register = async (email, password) => {
+		console.log('regist');
+		await account.create(ID.unique(), email, password);
+		await login(email, password);  }
 
 
 	const login_or_register = async (email, password) => {
 		try {
 			await login(email, password);
 		} catch (error) {
+			console.log('error');
 			await register(email, password);   }  }
 
 
