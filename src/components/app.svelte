@@ -26,13 +26,7 @@
   import routes from "../js/routes";
   import store from "../js/store";
   import { account } from "../js/appwrite";
-  import { currentMenuItem } from "../js/store";
-
-  import { user } from "../js/user.js";
-  import { 
-    APPWRITE_OWNER_USER_COLLECTION_ID,
-  } from "../js/constants.js";
-  import { getUser } from "../js/lotteries.js";
+  import { currentMenuItem, account_type } from "../js/store";
 
   export let f7router;
   export let f7route;
@@ -43,12 +37,6 @@
     store: store,
     routes: routes,
   };
-  let owner_user;
-  if($user){
-    owner_user = getUser(APPWRITE_OWNER_USER_COLLECTION_ID, $user.$id);
-    console.log(owner_user.total);
-  }
-  
 
   let username = "";
   let password = "";
@@ -77,6 +65,9 @@
 
   let menuItem;
   currentMenuItem.subscribe(value => menuItem = value);
+
+  let user_type;
+  account_type.subscribe(value => user_type = value);
 </script>
 
 <App {...f7params}>
@@ -233,10 +224,11 @@
                   <span>Home</span>
                 </Link>
               </li>
+              {#if user_type == "owner"}
               <li>
                 <Link
                   href="/home-store/"
-                  class="item-link item-selected"
+                  class="item-link"
                   panelClose
                   style="justify-content: left; width: auto; height: auto; top: auto; right: auto;"
                 >
@@ -255,6 +247,7 @@
                   <span>Home-Store</span>
                 </Link>
               </li>
+              {/if}
               <li>
                 <Link
                   href="/shopping-cart/"
