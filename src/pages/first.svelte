@@ -36,11 +36,12 @@
 			</div>
 			<div class="clearfix pb-4">
 
-				<a id="firstbuttons1" on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("customer"); currentMenuItem.set("My Order");}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/user.png" alt=""> 
+				<a id="firstbuttons1" on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("customer"); currentMenuItem.set("My Order"); user_type = 0; 
+				currentMenuItem.subscribe(value => name = value); console.log(name);}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/user.png" alt=""> 
 					<span>Customer Login</span>
 				</a>
 
-				<a id="firstbuttons2"  on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("owner"); currentMenuItem.set("My Store");}} class="button-large button button-social rounded-xl mb-10" style="border:1px solid #007AFF;"><img src="/assets/img/social/inbox-blue.png" alt="">
+				<a id="firstbuttons2"  on:click={() => {document.getElementById('firstbuttons1').style.display = 'none'; document.getElementById('hidelogbtn').style.display = 'flex'; document.getElementById('firstbuttons2').style.display = 'none'; document.getElementById('googlebtn').style.display = 'flex'; account_type.set("owner"); currentMenuItem.set("My Store"); user_type = 1;}} class="button-large button button-social rounded-xl mb-10" style="border:1px solid #007AFF;"><img src="/assets/img/social/inbox-blue.png" alt="">
 					<span>Store Owner Login</span>
 				</a>
 
@@ -80,9 +81,17 @@
 	import { ID } from 'appwrite';
 	import { f7 } from 'framework7-svelte';
 
+
 	import { user_name, user_email, account_type, currentMenuItem } from "../js/store";
 
+	import { 
+		APPWRITE_USRE_LIST_COLLECTION_ID,
+   	} from "../js/constants.js";
+	import { user_regist, get_user } from "../js/profile";
+
 	export let f7router;
+
+	let user_type;
 
 	let store = writable(null);
 
@@ -102,13 +111,35 @@
 		await init();
 		user_email.set(email);
 		user_name.set(email.split('@')[0]);
-		f7router.navigate('/home/');    }
+		const user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, promise.$id);
+		if(user_data != null){
+			if(user_data['documents'][0].user_type == 0){
+				window.location.href = "/home/";    
+			}else if(user_data['documents'][0].user_type == 1){
+				window.location.href = "/home-store/";    
+			}
+		} 
+	}
 
 
 	const register = async (email, password) => {
 		const uname = email.split('@')[0];
 		const promise = await account.create(ID.unique(), email, password, uname);
-		await login(email, password)   }
+		if(promise.$id != null){
+			if(user_type != null){
+				const data = {
+					user_id: promise.$id,
+					user_type: user_type,
+				};
+				try {
+					await user_regist(APPWRITE_USRE_LIST_COLLECTION_ID, data);
+				} catch (exception) {	
+					console.error(": ", exception);
+				}
+			}
+		}
+		await login(email, password)   
+	}
 
 
 	const login_or_register = async (email, password) => {
@@ -122,6 +153,7 @@
 	const google_login = async () => {
 		try {
 			const baseUrl = window.location.origin;
+			// const response = account.createOAuth2Session('google');
 			const response = account.createOAuth2Session('google', `${baseUrl + '/#!/home/'}`, `${baseUrl + '/#!/welcome/'}`);
 		} catch (err) {
 			console.error('Google login error: ', err);    }    }
