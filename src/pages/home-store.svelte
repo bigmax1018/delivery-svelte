@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { user } from "../js/user.js";
   import { getDocuments } from "../js/lotteries.js";
-  import { APPWRITE_FOOD_COLLECTION_ID,  FOOD_TAG_POPULAR, FOOD_TAG_FAVOURITES,  FOOD_TAG_FEATURED, } from "../js/constants.js";
+  import { APPWRITE_FOOD_COLLECTION_ID,  FOOD_TAG_POPULAR, FOOD_TAG_FAVOURITES,  FOOD_TAG_FEATURED, APPWRITE_USRE_LIST_COLLECTION_ID } from "../js/constants.js";
   import { id } from "framework7/shared/utils.js";
   import ApexCharts from 'apexcharts';
   import "jsvectormap/dist/css/jsvectormap.css";
@@ -16,6 +16,9 @@
   import chart03 from "./components/chart-03";
   import chart04 from "./components/chart-04";
 
+  
+  import { account_type, currentMenuItem } from "../js/store";
+
   export let f7router;
 
   let foodItems = [];
@@ -25,6 +28,8 @@
   let stickyMenu = false;
   let sidebarToggle = false;
   let scrollTop = false;
+  let user_data;
+  let user_type;
 
   onMount(async () => {
     foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
@@ -40,6 +45,17 @@
     chart03();
     chart04();
     map01();
+
+
+    user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id);
+    user_type = user_data['documents'][0].user_type;
+    if(user_type == 0){
+      currentMenuItem.set("My Order");
+      account_type.set("customer");
+    }else if (user_type == 1){
+      currentMenuItem.set("My Store");
+      account_type.set("owner");
+    }
   });
 
 
