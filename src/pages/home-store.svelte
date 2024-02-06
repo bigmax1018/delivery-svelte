@@ -16,7 +16,7 @@
   import chart03 from "./components/chart-03";
   import chart04 from "./components/chart-04";
 
-  
+  import { get_user, user_regist } from "../js/profile.js";
   import { account_type, currentMenuItem } from "../js/store";
 
   export let f7router;
@@ -44,18 +44,34 @@
     chart02();
     chart03();
     chart04();
-    map01();
+    // map01();
 
 
     user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id);
-    user_type = user_data['documents'][0].user_type;
-    if(user_type == 0){
-      currentMenuItem.set("My Order");
-      account_type.set("customer");
-    }else if (user_type == 1){
+    if(user_data.total > 0){
+      user_type = user_data['documents'][0].user_type;
+      if(user_type == 0){
+        currentMenuItem.set("My Order");
+        account_type.set("customer");
+        f7router.navigate('/home/'); 
+      }else if (user_type == 1){
+        currentMenuItem.set("My Store");
+        account_type.set("owner");
+      }
+    }else {
+      const data = {
+					user_id: $user.$id,
+					user_type: 1,
+      };
+      try {
+        await user_regist(APPWRITE_USRE_LIST_COLLECTION_ID, data);
+      } catch (exception) {	
+        console.error(": ", exception);
+      }
       currentMenuItem.set("My Store");
       account_type.set("owner");
     }
+    
   });
 
 

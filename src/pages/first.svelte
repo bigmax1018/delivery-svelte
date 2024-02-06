@@ -154,7 +154,13 @@
 		try {
 			const baseUrl = window.location.origin;
 			// const response = account.createOAuth2Session('google');
-			const response = account.createOAuth2Session('google', `${baseUrl + '/#!/home/'}`, `${baseUrl + '/#!/welcome/'}`);
+			if(user_type != null){
+				if(user_type == 0){
+					const response = account.createOAuth2Session('google', `${baseUrl + '/#!/home/'}`, `${baseUrl + '/#!/welcome/'}`);
+				}else if(user_type == 1){
+					const response = account.createOAuth2Session('google', `${baseUrl + '/#!/home-store/'}`, `${baseUrl + '/#!/welcome/'}`);
+				}
+			}
 		} catch (err) {
 			console.error('Google login error: ', err);    }    }
 

@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { user } from "../js/user.js";
   import { getDocuments } from "../js/lotteries.js";
-  import { get_user } from "../js/profile.js";
+  import { get_user, user_regist } from "../js/profile.js";
   import { 
     APPWRITE_FOOD_COLLECTION_ID,
     FOOD_TAG_POPULAR,
@@ -28,13 +28,28 @@
 
     foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
     user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id);
-    user_type = user_data['documents'][0].user_type;
-    if(user_type == 0){
+    if(user_data.total > 0){
+      user_type = user_data['documents'][0].user_type;
+      if(user_type == 0){
+        currentMenuItem.set("My Order");
+        account_type.set("customer");
+      }else if (user_type == 1){
+        currentMenuItem.set("My Store");
+        account_type.set("owner");
+        f7router.navigate('/home-store/'); 
+      }
+    }else{
+      const data = {
+					user_id: $user.$id,
+					user_type: 0,
+      };
+      try {
+        await user_regist(APPWRITE_USRE_LIST_COLLECTION_ID, data);
+      } catch (exception) {	
+        console.error(": ", exception);
+      }
       currentMenuItem.set("My Order");
       account_type.set("customer");
-    }else if (user_type == 1){
-      currentMenuItem.set("My Store");
-      account_type.set("owner");
     }
   });
 
