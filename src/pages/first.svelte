@@ -111,14 +111,16 @@
 		await init();
 		user_email.set(email);
 		user_name.set(email.split('@')[0]);
-		const user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, promise.$id);
-		if(user_data != null){
-			if(user_data['documents'][0].user_type == 0){
-				window.location.href = "/home/";    
-			}else if(user_data['documents'][0].user_type == 1){
-				window.location.href = "/home-store/";    
+		
+		// const user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, promise.$id);
+		// console.log(user_data['documents'][0]);
+		// if(user_data.total > 0){
+			if(user_type == 0){
+				window.location.href = "/#!/home/";    
+			}else if(user_type == 1){
+				window.location.href = "/#!/home-store/";    
 			}
-		} 
+		// } 
 	}
 
 
@@ -146,7 +148,6 @@
 		try {
 			await login(email, password);
 		} catch (error) {
-			console.log('error');
 			await register(email, password);   }  }
 
 
