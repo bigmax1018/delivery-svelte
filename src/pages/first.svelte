@@ -80,13 +80,8 @@
 	import { writable } from 'svelte/store';
 	import { ID } from 'appwrite';
 	import { f7 } from 'framework7-svelte';
-
-
 	import { user_name, user_email, account_type, currentMenuItem } from "../js/store";
-
-	import { 
-		APPWRITE_USRE_LIST_COLLECTION_ID,
-   	} from "../js/constants.js";
+	import { APPWRITE_USRE_LIST_COLLECTION_ID } from "../js/constants.js";
 	import { user_regist, get_user } from "../js/profile";
 
 	export let f7router;

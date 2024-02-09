@@ -25,6 +25,22 @@
 
 	upgradeNotification.open();
   };
+
+  let profile_image = "";
+  let fileinput;
+
+  const update_profile = () => {
+    console.log('hihihhaha');
+  }
+
+  const onFileSelected = (e) => {
+	  let image = e.target.files[0];
+	  let reader = new FileReader();
+	  reader.readAsDataURL(image);
+	  reader.onload = (e) => {
+		profile_image = e.target.result;
+	  };
+	};
 </script>
 
 <div class="page profile-wraper">
@@ -66,7 +82,7 @@
 
   <!-- Page Content -->
   <div class="page-content content-area pt-60">
-    <div class="profile-info">
+    <div class="profile-info" id="profile_info">
       <div class="container">
         <!-- author -->
         <div class="author-bx">
@@ -257,5 +273,115 @@
         </div>
       </div>
     </div>
+
+    <div class="profileform" id="profile_edit" style="display: none;">
+      <br /><br />
+      <center>
+        <form id="profileInfoForm" on:submit={update_profile}>
+          {#if profile_image}
+          <img
+          id="profile_image"
+          class="Profile_Image w-[20vw] h-[20vw]"
+          name="Profile_Image"
+          src={profile_image}
+          alt="profile image"
+          on:click={() => {
+            fileinput.click();
+          }}
+          />
+          {:else}
+            <img
+            id="profile_image"
+            name="Profile_Image"
+            src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+            class="Profile_Image w-[20vw] h-[20vw]"
+            alt=""
+            on:click={() => {
+              fileinput.click();
+            }}
+            />
+          {/if}
+          <br />
+          <input
+            style="display:none"
+            type="file"
+            accept=".jpg, .jpeg, .png"
+            required
+            on:change={(e) => onFileSelected(e)}
+            bind:this={fileinput}
+          />
+          <input
+            type="text"
+            placeholder="Enter Your description..."
+            id="description"
+            name="description"
+            required
+            class="text-align-center text-3xl w-[60vw]"
+            style="color:white; background-color:#a79c91;border-radius:10px;"
+          /><br/>
+          <input
+            type="text"
+            placeholder="Enter Your Address..."
+            id="address"
+            name="address"
+            required
+            class="text-align-center text-3xl w-[60vw]"
+            style="color:white; background-color:#a79c91;border-radius:10px;"
+          /><br/>
+          <select
+            id="most_order1"
+            name="most_order1"
+            placeholder="Select Tag"
+            required
+            class="text-white text-align-center pb-5 pt-5 w-[60vw]"
+            style="background-color:#a79c91;border-radius:10px;"
+          >
+            <option selected>Select Most ordered Food1</option>
+            <option value="5">Bebidas</option>
+            <option value="6">On Delivery</option>
+            <option value="7">Done</option>
+            <option value="8">Favorites</option>
+          </select> <br />
+          <select
+            id="most_order2"
+            name="most_order2"
+            placeholder="Select Tag"
+            required
+            class="text-white text-align-center pb-5 pt-5 w-[60vw]"
+            style="background-color:#a79c91;border-radius:10px;"
+          >
+            <option selected>Select Most ordered Food2</option>
+            <option value="1">Featured</option>
+            <option value="2">Popular</option>
+            <option value="3">Helados</option>
+            <option value="4">Fast Food</option>
+          </select> <br />
+          <button
+            class="button-large button button-fill rounded-xl w-[40vw]"
+            type="submit">
+            Update Profile Data
+          </button>
+        </form>
+      </center>
+      
+    </div>
+  </div>
+  <div class='toolbar toolbar-bottom container footer-button padding'>
+    <button id="update_button" class="rounded-xl my-8 w-[40vw] float-right mr-8 py-2 bg-blue-500 text-white text-sm font-bold tracking-wide rounded-full"
+    onclick="document.getElementById('profile_info').style.display = 'none'; document.getElementById('profile_edit').style.display = 'block'; document.getElementById('see_button').style.display = 'block'; document.getElementById('update_button').style.display = 'none';">
+    Update Profile</button>
+
+    <button style="display:none;" id="see_button" class="my-8 w-[40vw] float-right mr-8 py-2 bg-blue-700 text-white text-sm font-bold tracking-wide rounded-full"
+    onclick="document.getElementById('profile_info').style.display = 'block'; document.getElementById('profile_edit').style.display = 'none'; document.getElementById('update_button').style.display = 'block'; document.getElementById('see_button').style.display = 'none';">
+    See my Profile</button>
   </div>
 </div>
+
+<style>
+  #description::placeholder {
+	  color: white;
+	}
+  #address::placeholder {
+	  color: white;
+	}
+</style>
