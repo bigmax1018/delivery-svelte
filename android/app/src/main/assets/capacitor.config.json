@@ -1,0 +1,8 @@
+{
+	"appId": "id.man.coolgary",
+	"appName": "cool.new.tesgary",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	}
+}

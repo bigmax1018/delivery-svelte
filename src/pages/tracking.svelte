@@ -161,50 +161,31 @@
                   />
                 </svg></center>
             </a>
+<a href="javascript:void(0)" class="ml-8 mt-2" on:click={(e) =>
+    (e.currentTarget.nextElementSibling.style.display =
+      e.currentTarget.nextElementSibling.style.display === "none" ? "block" : "none")}>
+    <svg
+    width="24"
+    height="28"
+    viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.625 2.5C8.625 3.12132 8.12132 3.625 7.5 3.625C6.87868 3.625 6.375 3.12132 6.375 2.5C6.375 1.87868 6.87868 1.375 7.5 1.375C8.12132 1.375 8.625 1.87868 8.625 2.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM7.5 13.625C8.12132 13.625 8.625 13.1213 8.625 12.5C8.625 11.8787 8.12132 11.375 7.5 11.375C6.87868 11.375 6.375 11.8787 6.375 12.5C6.375 13.1213 6.87868 13.625 7.5 13.625Z"
+        fill="white"/>
+    </svg>
+</a>
 
-            <a
-              class="mt-3"
-              href="javascript:void(0)"
-              on:click={(e) =>
-                (e.currentTarget.nextElementSibling.style.display =
-                  e.currentTarget.nextElementSibling.style.display === "none"
-                    ? "block"
-                    : "none")}
-            >
-              <a
-                href="javascript:void(0)"
-                class="icon-cell"
-                on:click={(e) =>
-                  (e.currentTarget.nextElementSibling.style.display =
-                    e.currentTarget.nextElementSibling.style.display === "none"
-                      ? "block"
-                      : "none")}
-              >
-                <svg
-                  width="42"
-                  height="24"
-                  viewBox="-6.5 2 15 11"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8.625 2.5C8.625 3.12132 8.12132 3.625 7.5 3.625C6.87868 3.625 6.375 3.12132 6.375 2.5C6.375 1.87868 6.87868 1.375 7.5 1.375C8.12132 1.375 8.625 1.87868 8.625 2.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM7.5 13.625C8.12132 13.625 8.625 13.1213 8.625 12.5C8.625 11.8787 8.12132 11.375 7.5 11.375C6.87868 11.375 6.375 11.8787 6.375 12.5C6.375 13.1213 6.87868 13.625 7.5 13.625Z"
-                    fill="white"
-                  />
-                </svg>
-              </a>
-
-              <div class="options-box" style="display: none;">
-                <button
-                  type="button"
-                  on:click={() => {
-                    orders.cancelOrder();
-                  }}
-                  class="btn-primary mt-1 text-black bg-red-500 rounded-2xl font-extrabold mx-2"
-                  >Cancel Order</button
-                >
-              </div>
-            </a>
+<div class="options-box" style="display: none;">
+    <button
+      type="button"
+      on:click={() => {
+        orders.cancelOrder();
+      }}
+      class="btn-primary mt-1 text-black bg-red-500 rounded-2xl font-extrabold mx-2"
+      >Cancel Order</button
+    >
+</div>
           </div>
         </div>
       </div>
