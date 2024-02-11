@@ -1,7 +1,7 @@
 <script>
   import { f7, Link, Button } from "framework7-svelte";
   import { user } from "../js/user";
-  import { user_name, user_email, account_type, currentMenuItem } from "../js/store";
+  import { user_name, user_email, account_type, currentMenuItem, getDocuments } from "../js/store";
 
   let uname = '';
   let uemail = '';
@@ -30,7 +30,16 @@
   let fileinput;
 
   const update_profile = () => {
-    console.log('hihihhaha');
+    const city_name = document.getElementById('city_name').innerHTML;
+    const address = document.getElementById('address').innerHTML;
+    const phone_number = document.getElementById('phone').innerHTML;
+    const data = {
+      profile_image: profile_image,
+      profile_address: address,
+      profile_city: city_name,
+      profile_phon: phone_number,
+	  };
+    console.log($user.$id);
   }
 
   const onFileSelected = (e) => {
@@ -87,7 +96,30 @@
         <!-- author -->
         <div class="author-bx">
           <div class="dz-media">
-            <img src="../assets/img/avatar/avatarface.jpg" alt="" />
+            <!-- <img src="../assets/img/avatar/avatarface.jpg" alt="" /> -->
+            {#if profile_image}
+              <img
+              id="profile_image"
+              class="Profile_Image w-[20vw] h-[20vw]"
+              name="Profile_Image"
+              src={profile_image}
+              alt="profile image"
+              on:click={() => {
+                fileinput.click();
+              }}
+              />
+            {:else}
+              <img
+              id="profile_image"
+              name="Profile_Image"
+              src="../assets/img/avatar/avatarface.jpg"
+              class="Profile_Image w-[20vw] h-[20vw]"
+              alt=""
+              on:click={() => {
+                fileinput.click();
+              }}
+              />
+            {/if}
           </div>
           <div class="dz-content">
             {#if $user && $user.name}
@@ -97,7 +129,7 @@
             {:else}
               <h2 class="title">{uname}</h2>
             {/if} 
-            <p class="text-primary">London, England</p>
+            <p class="text-primary" id="city_name" contenteditable>London, England</p>
           </div>
         </div>
 
@@ -123,7 +155,7 @@
               </div>
               <div class="dz-content">
                 <p class="sub-title">Mobile Phone</p>
-                <h5 class="title">+12 345 678 92</h5>
+                <h5 class="title" id="phone" contenteditable>+12 345 678 92</h5>
               </div>
             </li>
             <li>
@@ -173,7 +205,7 @@
               </div>
               <div class="dz-content">
                 <p class="sub-title">Address</p>
-                <h5 class="title">
+                <h5 class="title" id="address" contenteditable>
                   Franklin Avenue, Corner St. London, 24125151
                 </h5>
               </div>
@@ -367,9 +399,10 @@
     </div>
   </div>
   <div class='toolbar toolbar-bottom container footer-button padding'>
-    <button id="update_button" class="rounded-xl my-8 w-[40vw] float-right mr-8 py-2 bg-blue-500 text-white text-sm font-bold tracking-wide rounded-full"
+    <!-- <button id="update_button" class="rounded-xl my-8 w-[40vw] float-right mr-8 py-2 bg-blue-500 text-white text-sm font-bold tracking-wide rounded-full"
     onclick="document.getElementById('profile_info').style.display = 'none'; document.getElementById('profile_edit').style.display = 'block'; document.getElementById('see_button').style.display = 'block'; document.getElementById('update_button').style.display = 'none';">
-    Update Profile</button>
+    Update Profile</button> -->
+    <Button large round fill onClick={update_profile}>Update Profile</Button>
 
     <button style="display:none;" id="see_button" class="my-8 w-[40vw] float-right mr-8 py-2 bg-blue-700 text-white text-sm font-bold tracking-wide rounded-full"
     onclick="document.getElementById('profile_info').style.display = 'block'; document.getElementById('profile_edit').style.display = 'none'; document.getElementById('update_button').style.display = 'block'; document.getElementById('see_button').style.display = 'none';">
