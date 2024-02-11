@@ -35,4 +35,21 @@ export const user_regist = async (collectionId, data) => {
       );
     }
   };
+  export const update_user = async (collectionId, userId, data) => {
+    if(userId){
+      const document = await databases.listDocuments(APPWRITE_DATABASE_ID, collectionId, [Query.equal("user_id", userId)]);
+      const doc_id = document['documents'][0].$id;
+      console.log(doc_id);
+      try {
+        return await databases.updateDocument(APPWRITE_DATABASE_ID, collectionId, doc_id, data);
+      } catch (error) {
+        console.error(
+          "Lotteries.js create error while getting documents from DB: ",
+          error
+        );
+      }
+    }else{
+      console.error("not user regist");
+    }
+  };
 
