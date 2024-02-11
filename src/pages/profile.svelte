@@ -2,6 +2,8 @@
   import { f7, Link, Button } from "framework7-svelte";
   import { user } from "../js/user";
   import { user_name, user_email, account_type, currentMenuItem, getDocuments } from "../js/store";
+  import { APPWRITE_USRE_LIST_COLLECTION_ID } from "../js/constants.js";
+  import { update_user } from "../js/profile";
 
   let uname = '';
   let uemail = '';
@@ -29,7 +31,7 @@
   let profile_image = "";
   let fileinput;
 
-  const update_profile = () => {
+  const update_profile = async () => {
     const city_name = document.getElementById('city_name').innerHTML;
     const address = document.getElementById('address').innerHTML;
     const phone_number = document.getElementById('phone').innerHTML;
@@ -37,9 +39,10 @@
       profile_image: profile_image,
       profile_address: address,
       profile_city: city_name,
-      profile_phon: phone_number,
+      profile_phone: phone_number,
 	  };
-    console.log($user.$id);
+    await update_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id,  data);
+    
   }
 
   const onFileSelected = (e) => {
