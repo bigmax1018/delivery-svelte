@@ -32,6 +32,7 @@
     "copy-webpack-plugin": "^12.0.0",
     "css-loader": "^6.9.0",
     "dom7": "^4.0.6",
+    "dotenv": "^16.4.1",
     "file-loader": "^6.2.0",
     "firebase": "^10.7.1",
     "firebase-cli": "^1.2.0",

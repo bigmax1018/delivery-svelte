@@ -10,6 +10,9 @@ import {
   APPWRITE_ORDER_COLLECTION_ID,
 } from "./constants";
 import { Client, Databases, ID } from "appwrite";
+import {
+  foodStore, businessLocationStore, dropoffLocationStore
+} from "../js/store.js";
 
 const client = new Client();
 client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);
@@ -51,36 +54,55 @@ const manageOrders = () => {
 
   const createFakeOrder = async (foodValue, businessLocation, dropoffLocation) => {
     const fakeOrder = {
-      id: uuidv4(), //Generate a GUID for the order
-      foodValue: foodValue,
-      businessLocation: businessLocation,
-      dropoffLocation: dropoffLocation,
+      id: uuidv4(), // Generate a GUID for the order
+      foodValue,
+      businessLocation,
+      dropoffLocation,
     };
-    console.log(fakeOrder);
 
     try {
       const response = await axios.post(`${orderUrl}/`, fakeOrder);
 
       if (response.status === 200 || response.status === 201) {
         console.log("Order created successfully:", response.data);
-        try {
-          await databases.createDocument(
-            APPWRITE_DATABASE_ID,
-            APPWRITE_ORDER_COLLECTION_ID,
-            ID.unique(),
-            fakeOrder
-          );
-        } catch (error) {
-          console.error(
-            "fakeorder.js create error while getting documents from DB: ",
-            error
-          );
-        }
+        await databases.createDocument(
+          APPWRITE_DATABASE_ID,
+          APPWRITE_ORDER_COLLECTION_ID,
+          ID.unique(),
+          fakeOrder
+        );
       } else {
-        console.log("Error creating order:", response.status, response.data);
+        throw new Error(`Error creating order. Status: ${response.status}. Data: ${response.data}`);
       }
     } catch (error) {
-      console.error("Error creating order:", error);
+      console.error("Error in createFakeOrder function:", error);
+    }
+  };
+
+  const createOrder = async (foodValue, businessLocation, dropoffLocation) => {
+    const order = {
+      //id: uuidv4(), // Generate a GUID for the order
+      foodValue,
+      businessLocation,
+      dropoffLocation,
+    };
+
+    try {
+      const response = await axios.post(`${orderUrl}/createOrder`, order);
+
+      if (response.status === 200 || response.status === 201) {
+        console.log("Order created successfully:", response.data);
+        await databases.createDocument(
+          APPWRITE_DATABASE_ID,
+          APPWRITE_ORDER_COLLECTION_ID,
+          ID.unique(),
+          order
+        );
+      } else {
+        throw new Error(`Error creating order. Status: ${response.status}. Data: ${response.data}`);
+      }
+    } catch (error) {
+      console.error("Error in createFakeOrder function:", error);
     }
   };
 
@@ -115,15 +137,15 @@ const manageOrders = () => {
     orderStatusStore.set(orderStatus);
 
     intervalId = setInterval(async () => {
-      
+
       await getOrderStatus();
       let orderstatus_Notification;
-			orderstatus_Notification = f7.notification.create({
-				icon: '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>',
-				title: "Order Status!",
-				text: orderStatus,
-				closeTimeout: 3000,
-			});
+      orderstatus_Notification = f7.notification.create({
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>',
+        title: "Order Status!",
+        text: orderStatus,
+        closeTimeout: 3000,
+      });
       orderstatus_Notification.open();
       orderStatusStore.set(orderStatus);
     }, 5000);
@@ -144,6 +166,9 @@ const manageOrders = () => {
       if (response.status === 200) {
         orderCancelled = true;
         console.log("Order cancelled successfully:", response.data);
+        businessLocationStore.set(null);
+        dropoffLocationStore.set(null);
+        foodStore.set(null);
       } else {
         console.log("Error cancelling order:", response.status, response.data);
       }
@@ -171,6 +196,7 @@ const manageOrders = () => {
     subscribe: store.subscribe,
     getAllOrders,
     createFakeOrder,
+    createOrder,
     getOrderStatus,
     startOrderStatusUpdates,
     handleOrderStart,
