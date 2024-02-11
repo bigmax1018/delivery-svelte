@@ -12,6 +12,7 @@
   let businessLocation;
   let dropoffLocation;
   let orderStatus;
+  let orderSubmitted = false;
   let order;
 
   let unsubscribeFoodStore = foodStore.subscribe((value) => {
@@ -34,7 +35,7 @@
     orderStatus = value;
   });
 
-  $: if (businessLocation && dropoffLocation && foodValue) {
+  $: if (businessLocation && dropoffLocation && foodValue && !orderSubmitted) {
     console.log("Food Variable:", foodValue);
     console.log("businessLocation:", businessLocation);
     console.log("dropoffLocation:", dropoffLocation);
@@ -44,17 +45,18 @@
       dropoffLocation,
     );
     orders.startOrderStatusUpdates();
+    orderSubmitted = true;
   }
 
   onMount(async () => {
     console.clear();
-    //orderStatus = await orders.getOrderStatus();
   });
 
   onDestroy(() => {
     unsubscribeBusinessLocationStore();
     unsubscribeDropoffLocationStore();
     unsubscribeOrderStatusStore();
+    unsubscribeFoodStore();
   });
 </script>
 
