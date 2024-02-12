@@ -3,10 +3,14 @@
   import { user } from "../js/user";
   import { user_name, user_email, account_type, currentMenuItem, getDocuments } from "../js/store";
   import { APPWRITE_USRE_LIST_COLLECTION_ID } from "../js/constants.js";
-  import { update_user } from "../js/profile";
+  import { update_user, get_user } from "../js/profile";
+  import { onMount } from "svelte";
 
   let uname = '';
   let uemail = '';
+
+  let user_data;
+
   user_name.subscribe(value => uname = value);
   user_email.subscribe(value => uemail = value);
 
@@ -31,17 +35,49 @@
   let profile_image = "";
   let fileinput;
 
+  let city_name = '';
+  let address = '';
+  let phone_number = '';
+  let profile_most_ordered1 = '';
+  let profile_most_ordered2 = '';
+
   const update_profile = async () => {
-    const city_name = document.getElementById('city_name').innerHTML;
-    const address = document.getElementById('address').innerHTML;
-    const phone_number = document.getElementById('phone').innerHTML;
+    city_name = document.getElementById('city_name').innerHTML;
+    address = document.getElementById('address').innerHTML;
+    phone_number = document.getElementById('phone').innerHTML;
+    profile_most_ordered1 = document.getElementById('most_ordered1').innerHTML;
+    profile_most_ordered2 = document.getElementById('most_ordered2').innerHTML;
     const data = {
       profile_image: profile_image,
       profile_address: address,
       profile_city: city_name,
       profile_phone: phone_number,
+      profile_most_ordered1: profile_most_ordered1,
+      profile_most_ordered2: profile_most_ordered2,
 	  };
-    await update_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id,  data);
+    const promise = await update_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id,  data);
+    if(promise.$id != null){
+      let toast = f7.toast.create({
+        text: "User Update Success",
+        position: 'top',
+        closeButton: true,
+        closeButtonText: 'Close',
+        closeButtonColor: 'green',
+        closeTimeout: 3000,
+      });
+      toast.open();
+    }else {
+      let toast = f7.toast.create({
+        text: "User Update fail",
+        position: 'top',
+        closeButton: true,
+        closeButtonText: 'Close',
+        closeButtonColor: 'red',
+        closeTimeout: 3000,
+      });
+      toast.open();
+      console.log(error.message); // Failure
+    };
     
   }
 
@@ -53,6 +89,18 @@
 		profile_image = e.target.result;
 	  };
 	};
+
+  onMount(async () => {
+    user_data = await get_user(APPWRITE_USRE_LIST_COLLECTION_ID, $user.$id);
+    if(user_data.total > 0){
+      city_name = user_data['documents'][0].profile_city;
+      address = user_data['documents'][0].profile_address;
+      phone_number = user_data['documents'][0].profile_phone;
+      profile_image = user_data['documents'][0].profile_image;
+      profile_most_ordered1 = user_data['documents'][0].profile_most_ordered1;
+      profile_most_ordered2 = user_data['documents'][0].profile_most_ordered2;
+    }
+  });
 </script>
 
 <div class="page profile-wraper">
@@ -115,7 +163,7 @@
               <img
               id="profile_image"
               name="Profile_Image"
-              src="../assets/img/avatar/avatarface.jpg"
+              src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
               class="Profile_Image w-[20vw] h-[20vw]"
               alt=""
               on:click={() => {
@@ -132,7 +180,7 @@
             {:else}
               <h2 class="title">{uname}</h2>
             {/if} 
-            <p class="text-primary" id="city_name" contenteditable>London, England</p>
+            <p class="text-primary" id="city_name" contenteditable>{city_name}</p>
           </div>
         </div>
 
@@ -158,7 +206,7 @@
               </div>
               <div class="dz-content">
                 <p class="sub-title">Mobile Phone</p>
-                <h5 class="title" id="phone" contenteditable>+12 345 678 92</h5>
+                <h5 class="title" id="phone" contenteditable>{phone_number}</h5>
               </div>
             </li>
             <li>
@@ -181,7 +229,7 @@
               </div>
               <div class="dz-content">
                 <p class="sub-title">Email Address</p>
-                <h5 class="title">example@gmail.com</h5>
+                <h5 class="title">{$user.email}</h5>
               </div>
             </li>
             <li>
@@ -209,7 +257,7 @@
               <div class="dz-content">
                 <p class="sub-title">Address</p>
                 <h5 class="title" id="address" contenteditable>
-                  Franklin Avenue, Corner St. London, 24125151
+                  {address}
                 </h5>
               </div>
             </li>
@@ -233,8 +281,9 @@
                 <img src="../assets/img/order/pic1.png" alt="" />
               </div>
               <div class="dz-info">
-                <h5 class="title">
-                  <a href="/item-details/">Creamy Latte Coffee</a>
+                <h5 class="title" id="most_ordered1" contenteditable>
+                  <!-- <a href="/item-details/">Creamy Latte Coffee</a> -->
+                  {profile_most_ordered1}
                 </h5>
                 <div class="dz-meta">
                   <ul>
@@ -267,8 +316,9 @@
                 <img src="../assets/img/order/pic2.png" alt="" />
               </div>
               <div class="dz-info">
-                <h5 class="item-title title">
-                  <a href="/item-details/">Ombe Ice Coffee Latte</a>
+                <h5 class="item-title title" id="most_ordered2" contenteditable>
+                  <!-- <a href="/item-details/">Ombe Ice Coffee Latte</a> -->
+                  {profile_most_ordered2}
                 </h5>
                 <div class="dz-meta">
                   <ul>
