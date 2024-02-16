@@ -24,6 +24,8 @@ export const APPWRITE_USRE_LIST_COLLECTION_ID = "65bd0bc74999b6e54c81";
 // export const APPWRITE_USRE_LIST_COLLECTION_ID = "65c129b5d14860b83d99";
 // export const APPWRITE_APIKEY = "AdminAPI";
 
+
+// Constants for food tags
 export const FOOD_TAG_FEATURED = "1";
 export const FOOD_TAG_POPULAR = "2";
 export const FOOD_TAG_HELADOS = "3";
